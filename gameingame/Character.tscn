@@ -21,7 +21,7 @@ affects = 6
 advantage_cost = 1
 damage = 5
 
-[node name="Parry" type="Node" parent="Moves"]
+[node name="Heal" type="Node" parent="Moves"]
 script = ExtResource( 3 )
 affects = 3
 advantage_cost = 2

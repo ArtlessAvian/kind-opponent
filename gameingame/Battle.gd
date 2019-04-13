@@ -11,6 +11,7 @@ var turn_state = null
 func _ready():
 	$Player.opponent = $Opponent
 	$Opponent.opponent = $Player
+#	self.emit_signal("update_bars")
 
 # Abuses yield to hand off stuff to the view
 func _on_button_down(player_action):

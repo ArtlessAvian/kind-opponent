@@ -30,4 +30,5 @@ bbcode_text = "[center] ADV: 100/100"
 text = " ADV: 100/100"
 scroll_active = false
 script = ExtResource( 4 )
+type_prefix = "ADV: "
 

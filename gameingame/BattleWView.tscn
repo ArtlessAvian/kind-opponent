@@ -4,19 +4,19 @@
 [ext_resource path="res://gameingame/viewintegration/Button.gd" type="Script" id=2]
 [ext_resource path="res://gameingame/Battle.tscn" type="PackedScene" id=3]
 
-[node name="GameUI" index="0" instance=ExtResource( 1 )]
+[node name="GameUI" instance=ExtResource( 1 )]
 
-[node name="EnemyUI" parent="UICanvas" index="0"]
-editor/display_folded = true
+[node name="EnemyHealthBar" parent="UICanvas/EnemyUI/EnemyBars/EnemyHPregion" index="0"]
+target_path = NodePath("../../../../../Battle")
 
-[node name="EnemyHPBar" parent="UICanvas/EnemyUI/EnemyBars/EnemyHPregion" index="0"]
-editor/display_folded = true
+[node name="EnemyAdvBar" parent="UICanvas/EnemyUI/EnemyBars/EnemyAdvRegion" index="0"]
+target_path = NodePath("../../../../../Battle")
 
-[node name="PlayerUI" parent="UICanvas" index="1"]
-editor/display_folded = true
+[node name="PlayerHealthBar" parent="UICanvas/PlayerUI/PlayerBars/PlayerHPRegion" index="0"]
+target_path = NodePath("../../../../../Battle")
 
-[node name="PlayerBars" parent="UICanvas/PlayerUI" index="0"]
-editor/display_folded = true
+[node name="PlayerAdvBar" parent="UICanvas/PlayerUI/PlayerBars/PlayerAdvRegion" index="0"]
+target_path = NodePath("../../../../../Battle")
 
 [node name="PlayerActions" parent="UICanvas/PlayerUI" index="1"]
 editor/display_folded = true
@@ -42,5 +42,9 @@ move_id = 3
 [connection signal="button_down" from="UICanvas/PlayerUI/PlayerActions/Action2Region/Attack2Button" to="Battle" method="_on_button_down" binds= [ 1 ]]
 [connection signal="button_down" from="UICanvas/PlayerUI/PlayerActions/Action3Region/Attack3Button" to="Battle" method="_on_button_down" binds= [ 2 ]]
 [connection signal="button_down" from="UICanvas/PlayerUI/PlayerActions/Action4Region/Attack4Button" to="Battle" method="_on_button_down" binds= [ 3 ]]
+[connection signal="update_bars" from="Battle" to="UICanvas/EnemyUI/EnemyBars/EnemyHPregion/EnemyHealthBar" method="update_children"]
+[connection signal="update_bars" from="Battle" to="UICanvas/EnemyUI/EnemyBars/EnemyAdvRegion/EnemyAdvBar" method="update_children"]
+[connection signal="update_bars" from="Battle" to="UICanvas/PlayerUI/PlayerBars/PlayerAdvRegion/PlayerAdvBar" method="update_children"]
+[connection signal="update_bars" from="Battle" to="UICanvas/PlayerUI/PlayerBars/PlayerHPRegion/PlayerHealthBar" method="update_children"]
 
 [editable path="Battle"]

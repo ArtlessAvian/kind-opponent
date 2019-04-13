@@ -10,7 +10,7 @@ func _ready():
 	pass # Replace with function body.
 
 func update_value(text):
-	self.text = type_prefix + text
+	self.bbcode_text = "[center]" + type_prefix + text
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
