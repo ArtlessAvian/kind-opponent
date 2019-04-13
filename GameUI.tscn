@@ -92,6 +92,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="EnemyAdvBar" parent="UICanvas/EnemyUI/EnemyBars/EnemyAdvRegion" instance=ExtResource( 4 )]
+editor/display_folded = true
 
 [node name="PlayerUI" type="Control" parent="UICanvas"]
 anchor_top = 0.6
@@ -184,3 +185,7 @@ custom_fonts/font = ExtResource( 5 )
 text = "Heal"
 clip_text = true
 
+
+[editable path="UICanvas/EnemyUI/EnemyBars/EnemyAdvRegion/EnemyAdvBar"]
+
+[editable path="UICanvas/PlayerUI/PlayerBars/PlayerHPRegion/PlayerHealthBar"]
