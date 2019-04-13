@@ -19,7 +19,7 @@ func do_move(move_id):
 
 func take_damage(damage):
 	self._health = max(0, self._health - damage)
-	self.last_damage = damage
+	self.last_damage = damage if damage > 0 else self.last_damage
 
 func is_dead():
 	return self._health <= 0
