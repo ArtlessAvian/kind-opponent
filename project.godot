@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="kind-opponent"
-run/main_scene="res://gameingame/Battle.tscn"
+run/main_scene="res://GameUI.tscn"
 config/icon="res://icon.png"
 
 [rendering]
