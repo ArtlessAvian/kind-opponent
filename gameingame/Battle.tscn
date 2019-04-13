@@ -33,7 +33,7 @@ func _on_Battle_update_bars():
 	if (self.percent_visible != float(character._health)/character.max_health):
 		$\"../..\".yielding_for_queue.push_back(self)"
 
-[sub_resource type="GDScript" id=4]
+[sub_resource type="GDScript" id=2]
 script/source = "extends Label
 
 # Declare member variables here. Examples:
@@ -148,7 +148,7 @@ margin_right = 384.805
 margin_bottom = 251.554
 text = "####################"
 percent_visible = 0.0
-script = SubResource( 4 )
+script = SubResource( 2 )
 character_path = NodePath("../../Player")
 
 [node name="opponent health" type="Label" parent="TEMPORARY"]
@@ -167,7 +167,7 @@ margin_right = 223.52
 margin_bottom = 109.864
 text = "####################"
 percent_visible = 0.0
-script = SubResource( 4 )
+script = SubResource( 2 )
 character_path = NodePath("../../Opponent")
 
 [node name="Label" type="Label" parent="TEMPORARY"]
@@ -180,10 +180,10 @@ text = "these would be textboxes
 "
 script = SubResource( 3 )
 
-[connection signal="update_bars" from="." to="TEMPORARY/opponent health" method="_on_Battle_update_bars"]
+[connection signal="update_bars" from="." to="TEMPORARY/player advantage" method="_on_Battle_update_bars"]
 [connection signal="update_bars" from="." to="TEMPORARY/opponent advantage" method="_on_Battle_update_bars"]
 [connection signal="update_bars" from="." to="TEMPORARY/player health" method="_on_Battle_update_bars"]
-[connection signal="update_bars" from="." to="TEMPORARY/player advantage" method="_on_Battle_update_bars"]
+[connection signal="update_bars" from="." to="TEMPORARY/opponent health" method="_on_Battle_update_bars"]
 [connection signal="user_feedback" from="." to="TEMPORARY/Label" method="_on_Battle_user_feedback"]
 [connection signal="button_down" from="TEMPORARY/Button0" to="." method="_on_button_down" binds= [ 0 ]]
 [connection signal="button_down" from="TEMPORARY/Button1" to="." method="_on_button_down" binds= [ 1 ]]
