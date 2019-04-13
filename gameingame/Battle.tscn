@@ -180,10 +180,10 @@ text = "these would be textboxes
 "
 script = SubResource( 3 )
 
-[connection signal="update_bars" from="." to="TEMPORARY/player health" method="_on_Battle_update_bars"]
-[connection signal="update_bars" from="." to="TEMPORARY/player advantage" method="_on_Battle_update_bars"]
 [connection signal="update_bars" from="." to="TEMPORARY/opponent health" method="_on_Battle_update_bars"]
 [connection signal="update_bars" from="." to="TEMPORARY/opponent advantage" method="_on_Battle_update_bars"]
+[connection signal="update_bars" from="." to="TEMPORARY/player health" method="_on_Battle_update_bars"]
+[connection signal="update_bars" from="." to="TEMPORARY/player advantage" method="_on_Battle_update_bars"]
 [connection signal="user_feedback" from="." to="TEMPORARY/Label" method="_on_Battle_user_feedback"]
 [connection signal="button_down" from="TEMPORARY/Button0" to="." method="_on_button_down" binds= [ 0 ]]
 [connection signal="button_down" from="TEMPORARY/Button1" to="." method="_on_button_down" binds= [ 1 ]]
