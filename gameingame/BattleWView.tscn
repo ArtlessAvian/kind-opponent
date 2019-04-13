@@ -16,6 +16,7 @@ target_path = NodePath("../../../../../Battle")
 
 [node name="PlayerHealthBar" parent="UICanvas/PlayerUI/PlayerBars/PlayerHPRegion" index="0"]
 editor/display_folded = true
+copy_health = true
 target_path = NodePath("../../../../../Battle")
 
 [node name="EnemyAdvBar" parent="UICanvas/PlayerUI/PlayerBars/PlayerAdvRegion" index="0"]
@@ -57,9 +58,11 @@ move_id = 3
 [connection signal="button_down" from="UICanvas/PlayerUI/PlayerActions/Action4Region/Attack4Button" to="Battle" method="_on_button_down" binds= [ 3 ]]
 [connection signal="update_bars" from="Battle" to="UICanvas/EnemyUI/EnemyBars/EnemyHPregion/EnemyHPBar" method="_on_Battle_update_bars"]
 [connection signal="update_bars" from="Battle" to="UICanvas/PlayerUI/PlayerBars/PlayerHPRegion/PlayerHealthBar" method="update_children"]
-[connection signal="update_bars" from="Battle" to="UICanvas/PlayerUI/PlayerBars/PlayerAdvRegion/EnemyAdvBar" method="_on_Battle_update_bars"]
 [connection signal="update_bars" from="Battle" to="UICanvas/EnemyUI/EnemyBars/EnemyAdvRegion/EnemyAdvBar" method="update_children"]
+[connection signal="update_bars" from="Battle" to="UICanvas/PlayerUI/PlayerBars/PlayerAdvRegion/EnemyAdvBar" method="_on_Battle_update_bars"]
 
 [editable path="UICanvas/EnemyUI/EnemyBars/EnemyAdvRegion/EnemyAdvBar"]
+
+[editable path="UICanvas/PlayerUI/PlayerBars/PlayerHPRegion/PlayerHealthBar"]
 
 [editable path="Battle"]

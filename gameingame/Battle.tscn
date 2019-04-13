@@ -10,3 +10,7 @@ script = ExtResource( 1 )
 
 [node name="Opponent" parent="." instance=ExtResource( 2 )]
 
+
+[editable path="Player"]
+
+[editable path="Opponent"]

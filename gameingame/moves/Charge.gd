@@ -1,4 +1,4 @@
 extends "GenericMove.gd"
 
 func run(user, opponent):
-	user.advantage += 10
+	user.advantage += 60

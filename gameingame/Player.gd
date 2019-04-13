@@ -5,8 +5,8 @@ extends Node
 # Stuff
 var opponent;
 
-export (int) var max_health = 100
-export (int) var max_adv = 100
+export (int) var max_health = 400
+export (int) var max_adv = 240
 
 export (int) var advantage = 60
 var last_damage = 0
