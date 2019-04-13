@@ -14,14 +14,15 @@ func _ready():
 	
 	battle = self.get_node(target_path)
 	character = battle.get_node("Player") if copy_player else battle.get_node("Opponent")
-	
-	counter = character.max_health if copy_health else character.advantage
-
 	bar = $UIBar
 	label = $UIBarLabel
+	if not character == null:
+		counter = character.max_health if copy_health else character.advantage
+		bar.set_value(float(counter) / self._get_target_max())
+		label.update_value(str(floor(counter), "/", self._get_target_max()))
+	
 
-	bar.set_value(float(counter) / self._get_target_max())
-	label.update_value(str(floor(counter), "/", self._get_target_max()))
+	
 
 func _thing(delta):
 	var target = self._get_target()
