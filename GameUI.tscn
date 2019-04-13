@@ -1,0 +1,79 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://UIBar.gd" type="Script" id=1]
+
+[node name="GameUI" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="UICanvas" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="EnemyUI" type="Control" parent="UICanvas"]
+anchor_right = 1.0
+anchor_bottom = 0.14
+
+[node name="EnemyBars" type="Control" parent="UICanvas/EnemyUI"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="EnemyHPregion" type="Control" parent="UICanvas/EnemyUI/EnemyBars"]
+anchor_right = 1.0
+anchor_bottom = 0.5
+
+[node name="EnemyAdvRegion" type="Control" parent="UICanvas/EnemyUI/EnemyBars"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="PlayerUI" type="Control" parent="UICanvas"]
+anchor_top = 0.6
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="PlayerBars" type="Control" parent="UICanvas/PlayerUI"]
+anchor_right = 1.0
+anchor_bottom = 0.33
+
+[node name="PlayerHPRegion" type="Control" parent="UICanvas/PlayerUI/PlayerBars"]
+anchor_right = 1.0
+anchor_bottom = 0.5
+
+[node name="PlayerHPBar" type="ColorRect" parent="UICanvas/PlayerUI/PlayerBars/PlayerHPRegion"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+script = ExtResource( 1 )
+perc = 0.2
+
+[node name="PlayerAdvRegion" type="Control" parent="UICanvas/PlayerUI/PlayerBars"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="PlayerActions" type="Control" parent="UICanvas/PlayerUI"]
+anchor_top = 0.33
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Action1Region" type="Control" parent="UICanvas/PlayerUI/PlayerActions"]
+anchor_right = 0.5
+anchor_bottom = 0.5
+
+[node name="Action2Region" type="Control" parent="UICanvas/PlayerUI/PlayerActions"]
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+
+[node name="Action3Region" type="Control" parent="UICanvas/PlayerUI/PlayerActions"]
+anchor_left = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+
+[node name="Action4Region" type="Control" parent="UICanvas/PlayerUI/PlayerActions"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+
