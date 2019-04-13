@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/white_square.png-e465f834c3326600ef22d38d86fadadd.stex"
+path="res://.import/speech_bubble1.png-7572c67f3cbeec5fef785edf0b6820cc.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://white_square.png"
-dest_files=[ "res://.import/white_square.png-e465f834c3326600ef22d38d86fadadd.stex" ]
+source_file="res://sprites/speech_bubble1.png"
+dest_files=[ "res://.import/speech_bubble1.png-7572c67f3cbeec5fef785edf0b6820cc.stex" ]
 
 [params]
 
