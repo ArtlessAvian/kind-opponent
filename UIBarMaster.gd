@@ -26,7 +26,7 @@ func _ready():
 func _thing(delta):
 	var target = self._get_target()
 	var diff = target - counter
-	counter += delta * sign(diff) * 1/4 * 60
+	counter += delta * sign(diff) * 60
 	
 	# move towards target, in direction of diff
 

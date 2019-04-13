@@ -19,13 +19,14 @@ func _on_button_down(player_action):
 
 func _process(delta):
 	if (!yielding_for_queue.empty()):
-		if (yielding_for_queue[0]._thing(delta)):
-			yielding_for_queue.pop_front()
+		for thing in yielding_for_queue:
+			if (thing._thing(delta)):
+				yielding_for_queue.erase(thing)
 	if (yielding_for_queue.empty() and turn_state != null):
 		turn_state = turn_state.resume()
 
 func _get_opponent_move():
-	if ($Opponent.advantage < 5): return 3
+	if ($Opponent.advantage < 20): return 3
 	return randi() % 3 # dont charge
 
 # hooooooo boy
