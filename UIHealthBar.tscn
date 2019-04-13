@@ -16,7 +16,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 1, 0, 0, 1 )
 script = ExtResource( 2 )
-move_speed = 0.3
 
 [node name="UIBarLabel" type="RichTextLabel" parent="."]
 anchor_right = 1.0

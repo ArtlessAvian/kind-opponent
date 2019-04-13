@@ -17,6 +17,6 @@ func _ready():
 	
 	
 func set_value(percent):
-	print(percent)
+#	print(percent)
 	perc = percent
 	self.set_anchor_and_margin(MARGIN_RIGHT,perc,0,false)

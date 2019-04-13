@@ -16,8 +16,7 @@ func _ready():
 	character = battle.get_node("Player") if copy_player else battle.get_node("Opponent")
 	
 	counter = character.max_health if copy_health else character.advantage
-	print(self.name, counter)
-	
+
 	bar = $UIBar
 	label = $UIBarLabel
 
@@ -54,11 +53,9 @@ func update_children():
 	if (copy_health):
 		if (counter != character._health):
 			battle.yielding_for_queue.push_back(self)
-			print(self.name, battle.yielding_for_queue)
 	else:
 		if (counter != character.advantage):
 			battle.yielding_for_queue.push_back(self)
-			print(self.name, battle.yielding_for_queue)
 
 func _get_target():
 	if copy_health:
