@@ -1,10 +1,16 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://UIBar.gd" type="Script" id=1]
+[ext_resource path="res://UIBar.tscn" type="PackedScene" id=1]
+[ext_resource path="res://UIBar.gd" type="Script" id=2]
 
 [node name="GameUI" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+
+[node name="Background" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.854902, 0.854902, 0.854902, 1 )
 
 [node name="UICanvas" type="Control" parent="."]
 anchor_right = 1.0
@@ -22,10 +28,16 @@ anchor_bottom = 1.0
 anchor_right = 1.0
 anchor_bottom = 0.5
 
+[node name="EnemyHPBar" parent="UICanvas/EnemyUI/EnemyBars/EnemyHPregion" instance=ExtResource( 1 )]
+color = Color( 1, 0, 0, 1 )
+
 [node name="EnemyAdvRegion" type="Control" parent="UICanvas/EnemyUI/EnemyBars"]
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 1.0
+
+[node name="EnemyAdvBar" parent="UICanvas/EnemyUI/EnemyBars/EnemyAdvRegion" instance=ExtResource( 1 )]
+color = Color( 0.780392, 0.811765, 0.486275, 1 )
 
 [node name="PlayerUI" type="Control" parent="UICanvas"]
 anchor_top = 0.6
@@ -44,13 +56,17 @@ anchor_bottom = 0.5
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 0
-script = ExtResource( 1 )
+color = Color( 1, 0, 0, 1 )
+script = ExtResource( 2 )
 perc = 0.2
 
 [node name="PlayerAdvRegion" type="Control" parent="UICanvas/PlayerUI/PlayerBars"]
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 1.0
+
+[node name="PlayerAdvBar" parent="UICanvas/PlayerUI/PlayerBars/PlayerAdvRegion" instance=ExtResource( 1 )]
+color = Color( 0.780392, 0.811765, 0.486275, 1 )
 
 [node name="PlayerActions" type="Control" parent="UICanvas/PlayerUI"]
 anchor_top = 0.33
