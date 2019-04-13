@@ -68,6 +68,7 @@ func _get_target_max():
 		return character.max_health
 	else:
 		return character.max_adv
-#
-#func _on_Battle_update_bars():
 
+# grrr
+func _on_Battle_update_bars():
+	self.update_children()

@@ -1,6 +1,6 @@
 extends Button
 
-export (NodePath) var player_path = "../../../../../Battle/Player";
+export (NodePath) var player_path = "../../../../../Battle";
 export (int, 0, 3) var move_id
 var advantage_cost
 var player
