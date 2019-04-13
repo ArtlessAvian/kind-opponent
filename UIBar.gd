@@ -6,12 +6,15 @@ extends ColorRect
 
 # Called when the node enters the scene tree for the first time.
 
-var current_perc
-
+export(float) var perc = 1
 func _ready():
-	set_value(desired_perc)
-	current_perc = desired_perc
-	self.set_anchor_and_margin(MARGIN_RIGHT,current_perc,0,false)
+	set_value(perc)
+	
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+	#self.set_anchor_and_margin(MARGIN_RIGHT,perc,0,false)
+	
 	
 func set_value(percent):
 	print(percent)
