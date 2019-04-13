@@ -132,7 +132,7 @@ margin_top = 5.0
 margin_right = -5.0
 margin_bottom = -5.0
 custom_fonts/font = ExtResource( 5 )
-text = "Attack"
+text = "Attack1"
 clip_text = true
 
 [node name="Action2Region" type="Control" parent="UICanvas/PlayerUI/PlayerActions"]
@@ -148,7 +148,7 @@ margin_top = 5.0
 margin_right = -5.0
 margin_bottom = -5.0
 custom_fonts/font = ExtResource( 5 )
-text = "Guard"
+text = "Charge"
 clip_text = true
 
 [node name="Action3Region" type="Control" parent="UICanvas/PlayerUI/PlayerActions"]
@@ -164,7 +164,7 @@ margin_top = 5.0
 margin_right = -5.0
 margin_bottom = -5.0
 custom_fonts/font = ExtResource( 5 )
-text = "Heal"
+text = "Attack2"
 clip_text = true
 
 [node name="Action4Region" type="Control" parent="UICanvas/PlayerUI/PlayerActions"]
@@ -181,6 +181,6 @@ margin_top = 5.0
 margin_right = -5.0
 margin_bottom = -5.0
 custom_fonts/font = ExtResource( 5 )
-text = "Charge"
+text = "Heal"
 clip_text = true
 
