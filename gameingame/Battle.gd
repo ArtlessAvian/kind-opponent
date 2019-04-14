@@ -34,16 +34,21 @@ func _get_opponent_move():
 	# 2 = Heal
 	# 3 = Charge
 	var weights = [
-		1000 if $Player._health < 20 else 10, \
-		10000 if $Player._health < $Opponent.advantage * $Opponent.get_child(0).get_child(1).efficiency \
-			else 20 * exp(- 0.5 * pow($Opponent.advantage - 100, 2) / 1600), \
-		pow($Opponent.last_damage / 40, 1.2) * 10, \
-		200 / max($Opponent.advantage, 0.1) \
+		10, \
+		16 * exp(- pow($Opponent.advantage - 100, 2) / 2450), \
+		pow($Opponent.last_damage / 40, 1.2) * 10 + ($Opponent.max_health - $Opponent._health) / 10, \
+		10 - 5 * atan(0.03 * ($Opponent.advantage - 80)) \
 	]
+
+	if $Player._health < 20:
+		weights[0] += 1000
+	
+	if $Player._health < $Opponent.advantage * $Opponent.get_child(0).get_child(1).efficiency:
+		weights[1] += 1000
 
 	var allowed = [
 		$Opponent.advantage >= $Opponent.get_child(0).get_child(0).advantage_cost,
-		$Opponent.advantage > 0,
+		$Opponent.advantage > 1,
 		$Opponent.advantage >= $Opponent.get_child(0).get_child(2).advantage_cost,
 		true
 	]
@@ -67,6 +72,7 @@ func _get_opponent_move():
 
 func _get_opportunity_attack():
 	opportunity_attack = randi() % 12
+	print("opportunity_attack ", opportunity_attack)
 
 # hooooooo boy
 	
