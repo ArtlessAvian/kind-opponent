@@ -28,8 +28,42 @@ func _process(delta):
 		turn_state = turn_state.resume()
 
 func _get_opponent_move():
-	if ($Opponent.advantage < 20): return 3
-	return randi() % 3 # dont charge
+	# 0 = Attack
+	# 1 = Adv Attack
+	# 2 = Heal
+	# 3 = Charge
+	var weights = [
+		1000 if $Player._health < 20 else 10, \
+		10000 if $Player._health < $Opponent.advantage else 20 * exp(- 0.5 * pow($Opponent.advantage - 100, 2) / 1600), \
+		$Opponent.last_damage / 4, \
+		200 / max($Opponent.advantage, 0.1) \
+	]
+
+	
+	var allowed = [
+		$Opponent.advantage >= $Opponent.get_child(0).get_child(0).advantage_cost,
+		$Opponent.advantage > 0,
+		$Opponent.advantage >= $Opponent.get_child(0).get_child(2).advantage_cost,
+		true
+	]
+	
+	print("Weight array:", weights)
+	print("allowed actions: ", allowed)
+
+	var total_weight = 0
+	for action_index in range(4):
+		if allowed[action_index]:
+			total_weight += pow(weights[action_index], 2) # Probability is proportional to wave function squared
+			
+	var weight_target = rand_range(0, total_weight)
+	print("total weight %f target weight %f" % [total_weight, weight_target])
+	for action_index in range(4):
+		if allowed[action_index]:
+			weight_target -= pow(weights[action_index], 2)
+
+			if weight_target <= 0:
+				print("action index ", action_index)
+				return action_index
 
 func _get_opportunity_attack():
 	opportunity_attack = randi() % 12
