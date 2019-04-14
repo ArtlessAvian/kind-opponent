@@ -1,4 +1,6 @@
-[gd_resource type="Animation" format=2]
+[gd_resource type="Animation" load_steps=2 format=2]
+
+[ext_resource path="res://sounds/heal.ogg" type="AudioStream" id=1]
 
 [resource]
 resource_name = "HealAnimation"
@@ -55,5 +57,19 @@ tracks/3/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ 0.0 ]
+}
+tracks/4/type = "audio"
+tracks/4/path = NodePath("../../../SoundEffects/healsound")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"clips": [ {
+"end_offset": 2.3,
+"start_offset": 0.1,
+"stream": ExtResource( 1 )
+} ],
+"times": PoolRealArray( 0 )
 }
 
