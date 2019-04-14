@@ -1,8 +1,24 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://MenuController.gd" type="Script" id=1]
 [ext_resource path="res://Pixellari.tres" type="DynamicFont" id=2]
 [ext_resource path="res://PixellariBig.tres" type="DynamicFont" id=3]
+
+[sub_resource type="Animation" id=1]
+resource_name = "New Anim"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.356863, 0.611765, 0.721569, 0 ), Color( 0.356863, 0.611765, 0.721569, 1 ) ]
+}
 
 [node name="MainMenu" type="Control"]
 anchor_right = 1.0
@@ -79,6 +95,100 @@ bbcode_enabled = true
 bbcode_text = "[center] Kind Opponent"
 text = " Kind Opponent"
 
+[node name="Credits" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.933333, 0.933333, 0.933333, 1 )
+
+[node name="Label" type="Label" parent="Credits"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -360.0
+margin_right = 366.0
+margin_bottom = 342.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "VGDC UCI Spring 2019
+Game Jam"
+align = 1
+valign = 1
+
+[node name="Label2" type="Label" parent="Credits"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -291.0
+margin_top = 156.0
+margin_right = 292.0
+margin_bottom = 473.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Ryan Chang - Programmer"
+align = 1
+valign = 1
+
+[node name="Label3" type="Label" parent="Credits"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -291.0
+margin_top = 137.0
+margin_right = 292.0
+margin_bottom = 558.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Jack Sun - Programmer, Writing"
+align = 1
+valign = 1
+
+[node name="Label4" type="Label" parent="Credits"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -291.0
+margin_top = 119.0
+margin_right = 292.0
+margin_bottom = 642.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Ryan N. Ward - Design"
+align = 1
+valign = 1
+
+[node name="Label5" type="Label" parent="Credits"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -291.0
+margin_top = 97.0
+margin_right = 292.0
+margin_bottom = 724.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Kyle Wong - Programming"
+align = 1
+valign = 1
+
+[node name="Button" type="Button" parent="Credits"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -181.0
+margin_top = -121.0
+margin_right = 182.0
+margin_bottom = -80.0
+custom_fonts/font = ExtResource( 2 )
+text = "Back!"
+
+[node name="TransitionToGame" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.356863, 0.611765, 0.721569, 0 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TransitionToGame"]
+"anims/New Anim" = SubResource( 1 )
+
 [connection signal="button_down" from="ButtonRegion/Region1/Button" to="MenuController" method="play_press"]
 [connection signal="button_down" from="ButtonRegion/Region2/Button" to="MenuController" method="credits_press"]
 [connection signal="button_down" from="ButtonRegion/Region3/Button" to="MenuController" method="quit_press"]
+[connection signal="button_down" from="Credits/Button" to="MenuController" method="_on_Button_button_down"]
+[connection signal="animation_finished" from="TransitionToGame/AnimationPlayer" to="MenuController" method="_on_AnimationPlayer_animation_finished"]
