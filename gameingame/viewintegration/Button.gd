@@ -23,6 +23,6 @@ func _process(delta):
 	self.text = move.summary(player, opportunity)
 	self.hint_tooltip = move.describe(player, opportunity)
 
-	set("custom_colors/font_color",opportunity_color if opportunity else default_color)
+	set("custom_colors/font_color",opportunity_color if opportunity and not self.disabled else default_color)
 	# ----------------------------------------------------------------- the battle. ^^^^^^^^^^^^ nice
 	
