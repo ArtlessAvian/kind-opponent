@@ -17,4 +17,8 @@ func summary(user, opportunity):
 	return 'Charge [0/+%d/0]' % _get_charge_value(user, opportunity)
 
 func describe(user, opportunity):
-	return 'Builds advantage.'
+	return """
+		Builds advantage.
+		%s
+		Advantage Increase: %d
+	""" % ['\nPERFECT OPPORTUNITY: Double advantage increase\n' if opportunity else '', _get_charge_value(user, opportunity)]

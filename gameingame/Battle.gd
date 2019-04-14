@@ -5,6 +5,8 @@ signal user_feedback
 signal update_bars
 signal opportunity_turn
 signal update_text
+signal player_action
+signal enemy_action
 
 var yielding_for_queue = []
 var turn = 0 # why not its free
@@ -37,7 +39,7 @@ func _get_opponent_move():
 	var weights = [
 		10, \
 		16 * exp(- pow($Opponent.advantage - 100, 2) / 2450), \
-		10 / (0.0035 * $Opponent._health + 0.1) * (1 + 0.35 * atan(0.075 * ($Opponent.max_health - $Opponent._health - 80))), \
+		10 / (0.0035 * $Opponent._health + 0.2) * (1 + 0.4 * atan(0.075 * ($Opponent.max_health - $Opponent._health - 100))), \
 		10 - 5 * atan(0.03 * ($Opponent.advantage - 80)) \
 	]
 
@@ -79,6 +81,8 @@ func _get_opportunity_attack():
 	print("opportunity_attack ", opportunity_attack)
 
 # hooooooo boy
+func update_bars():
+	self.emit_signal("update_bars")
 	
 func _game_logic(player_action):
 	turn += 1
@@ -86,9 +90,12 @@ func _game_logic(player_action):
 	yield()
 
 	self._text_box("Player " + ["attacks", "attacks (but differently)", "heals", "charges"][player_action] + "!")
-	yield()
+	self.emit_signal("player_action",player_action)
 	$Player.do_move(player_action, opportunity_attack == player_action)
+	yield()
+
 	self.emit_signal("update_bars")
+
 	yield()
 
 	if ($Opponent.is_dead()):
@@ -99,13 +106,14 @@ func _game_logic(player_action):
 		self._text_box("The opponent " + ["attacks", "attacks (but differently)", "heals", "charges"][opponent_move] + "!")
 		yield()
 		$Opponent.do_move(opponent_move, false)
-		self.emit_signal("update_bars")
-		yield()
+		self.emit_signal("enemy_action",opponent_move)
 
+		yield()
+		self.emit_signal("update_bars")
 		if ($Player.is_dead()):
 			self._text_box("You are ded (jk you win)")
 			self._text_box(str("Believability: ", 120/$Opponent._health, "%"))
-	if true:
+	if randi()%3 == 0:
 		self.emit_signal("update_text")
 	self._get_opportunity_attack()
 

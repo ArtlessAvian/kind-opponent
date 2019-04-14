@@ -17,4 +17,9 @@ func summary(user, opportunity):
 	return 'Heal [0/-%d/+%d]' % [advantage_cost, _get_heal_value(user, opportunity)]
 
 func describe(user, opportunity):
-	return 'Heals for a fraction of what was last dealt.'
+	return """
+		Heals for 60%% of the damage taken last time you were attacked.
+		%s
+		Advantage Cost: %d
+		Health Regen: %d
+	""" % ['\nPERFECT OPPORTUNITY: Double health regeneration\n' if opportunity else '', advantage_cost, _get_heal_value(user, opportunity)]
