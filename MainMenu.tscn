@@ -42,8 +42,8 @@ anchor_bottom = 1.0
 [node name="Background" type="TextureRect" parent="BackgroundParent"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -444.041
-margin_right = -444.043
+margin_left = -1006.84
+margin_right = -1006.85
 rect_pivot_offset = Vector2( 980, 210 )
 texture = ExtResource( 3 )
 expand = true
@@ -52,8 +52,8 @@ stretch_mode = 1
 [node name="Background2" type="TextureRect" parent="BackgroundParent"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 579.959
-margin_right = 579.953
+margin_left = 17.1553
+margin_right = 17.1425
 rect_pivot_offset = Vector2( 980, 210 )
 texture = ExtResource( 3 )
 expand = true
