@@ -127,10 +127,11 @@ margin_bottom = 62.61
 custom_fonts/normal_font = ExtResource( 6 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 bbcode_enabled = true
-bbcode_text = "[center] Kind Opponent"
-text = " Kind Opponent"
+bbcode_text = "[center] Do Hold Back"
+text = " Do Hold Back"
 
 [node name="Credits" type="ColorRect" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -1.22766
@@ -166,9 +167,9 @@ valign = 1
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -291.0
-margin_top = -45.69
+margin_top = -46.0
 margin_right = 292.0
-margin_bottom = 542.31
+margin_bottom = 542.0
 custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Jack Sun - Programming, Writing"
