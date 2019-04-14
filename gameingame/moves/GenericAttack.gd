@@ -24,9 +24,9 @@ func summary(user, opportunity):
 func describe(user, opportunity):
 	return """
 		Does damage using some advantage.
-		Moderate health steal.
+		Moderate health regen.
 		%s
 		Damage: %d
 		Advantage Cost: %d
 		Health Regen: %d
-	""" % ['PERFECT OPPORTUNITY: Double damage output\n' if opportunity else '', _get_damage_value(opportunity), advantage_cost, _get_regen_value(user)]
+	""" % ['\nPERFECT OPPORTUNITY: Double damage output\n' if opportunity else '', _get_damage_value(opportunity), advantage_cost, _get_regen_value(user)]

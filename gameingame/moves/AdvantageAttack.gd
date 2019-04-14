@@ -24,4 +24,12 @@ func summary(user, opportunity):
 	return 'Advantage Attack [%d/-%d/+%d]' % [_get_damage_value(user), _get_advantage_cost(user, opportunity), _get_regen_value(user)]
 
 func describe(user, opportunity):
-	return 'Uses all your advantage to deal damage.'
+	return """
+		Uses all your advantage to deal damage.
+		Damage is equal to 80%% of your advantage.
+		Tiny amount of health regen.
+		%s
+		Damage: %d
+		Advantage Cost: %d
+		Health Regen: %d
+	""" % ['\nPERFECT OPPORTUNITY: Half advantage cost\n' if opportunity else '', _get_damage_value(user), _get_advantage_cost(user, opportunity), _get_regen_value(user)]
