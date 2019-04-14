@@ -14,11 +14,11 @@ func available(user):
 	return user.advantage < user.max_adv
 
 func summary(user, opportunity):
-	return 'Charge [0/+%d/0]' % _get_charge_value(user, opportunity)
+	return 'Channel [0/+%d/0]' % _get_charge_value(user, opportunity)
 
 func describe(user, opportunity):
 	return """
-		Builds advantage.
+		Use the mana nodes nearby to recharge your mana.
 		%s
-		Advantage Increase: %d
-	""" % ['\nPERFECT OPPORTUNITY: Double advantage increase\n' if opportunity else '', _get_charge_value(user, opportunity)]
+		Mana Gain: %d
+	""" % ['\nPERFECT OPPORTUNITY: Double mana gain\n' if opportunity else '', _get_charge_value(user, opportunity)]

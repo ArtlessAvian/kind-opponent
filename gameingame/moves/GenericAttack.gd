@@ -22,17 +22,18 @@ func run(user, opponent, opportunity):
 	user.get_healed(_get_regen_value(user))
 
 func available(user):
-	return user.advantage >= advantage_cost
+	return user.advantage > 0
 
 func summary(user, opportunity):
-	return 'Light Attack [%d/-%d/+%d]' % [_get_damage_value(user, opportunity), _get_advantage_cost(user, opportunity), _get_regen_value(user)]
+	return 'Mana Flux Bolt [%d/-%d/+%d]' % [_get_damage_value(user, opportunity), _get_advantage_cost(user, opportunity), _get_regen_value(user)]
 
 func describe(user, opportunity):
 	return """
-		Does damage using some advantage.
-		Moderate health regen.
+		Fire a bolt of fluctuating mana.
+		Uses a moderate amount of mana to deal a moderate amount of damage.
+		Small amount of health regeneration.
 		%s
 		Damage: %d
-		Advantage Cost: %d
+		Mana Cost: %d
 		Health Regen: %d
 	""" % ['\nPERFECT OPPORTUNITY: Double damage output\n' if opportunity else '', _get_damage_value(user, opportunity), _get_advantage_cost(user, opportunity), _get_regen_value(user)]
