@@ -60,4 +60,4 @@ func _game_logic(player_action):
 
 func _text_box(text):
 	print(text)
-	self.emit_signal("user_feedback", text)
+	self.emit_signal("user_feedback", text, true)

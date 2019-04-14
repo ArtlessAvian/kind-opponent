@@ -19,7 +19,7 @@ func _ready():
 	if not character == null:
 		counter = character.max_health if copy_health else character.advantage
 		bar.set_value(float(counter) / self._get_target_max())
-		label.update_value(str(floor(counter), "/", self._get_target_max()))
+		label.update_value(str(ceil(counter), "/", self._get_target_max()))
 	
 
 	
@@ -34,10 +34,10 @@ func _thing(delta):
 	# if you move past the target
 	if ((target - counter) * (diff) > 0):
 		bar.set_value(counter / self._get_target_max())
-		label.update_value(str(floor(counter), "/", self._get_target_max()))
+		label.update_value(str(ceil(counter), "/", self._get_target_max()))
 	else:
 		bar.set_value(float(target) / self._get_target_max())
-		label.update_value(str(floor(target), "/", self._get_target_max()))
+		label.update_value(str(ceil(target), "/", self._get_target_max()))
 		return true
 	
 #	health = target._health
