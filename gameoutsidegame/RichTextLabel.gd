@@ -5,29 +5,50 @@ var script
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	script = [
-		"welcome to the circus",
-		"tl;dr your brother is annoying you to 1v1 him (not irl)",
-		"and its easy af to steamroll him",
-		"but dont do that bc idk",
-		"maybe your parents will ground you",
-		"well lets go ig. check out this jarring transition."
-	]
+	script = Array("""\"Yeah, mom. What?\" Alex followed his mother to the study, where his father waited.
+His father spoke first. \"We know what you\'ve been doing to Ryan.\"
+His mother followed. \"It\'s not nice, treating your little brother like that. Constantly beating him at Advant.\"
+\"Well, he keeps challenging me. What am I supposed to do?\"
+\"Let him win.\"
+\"WHAT?\"
+\"Let him win.\" Alex\'s father repeated.
+\"But I...\"
+\"It\'s bad practice to start your sentence with ‘but\'.\"
+\"Why should I? I\'m way better at Advant than he is. He barely knows how to play!\"
+\"Alex, think about what you are doing to your brother\'s self-image. He keeps fighting you, and he keeps losing!\"
+\"Because he sucks!\"
+His father sighed. \"Remember our Advant matches when you were six?\"
+\"Yeah. You told me already. Occasionally lost to me on purpose so I can feel good about myself. So you can go do that to Ryan; I\'ll have no part.\"
+\"Well, how would you feel if I just outmaneuvered you at every turn, even if your mother is playing on your level?\"
+\"I...\"
+\"Let me tell you how Ryan is feeling. He\'s devastated. He thinks he will never be good enough.\"
+His mother cut in. \"Later today, Ryan will issue another challenge. You will give him a good fight, and you will let him win.\"
+\"Or what?\"
+\"We will be watching.\" His father said.
+His mother continued. \"Bottom line, if he didn\'t enjoy the game, we\'re taking away your gaming time for a month.\"
+\"Wait, you can\'t do that!\"
+\"We can, and we will.\"""".split("\n"))
 	self.next_line()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
+var thingy
 func _process(delta):
 	if self.percent_visible >= 1:
 		if Input.is_action_just_pressed("click_anywhere"):
 			if not script.empty():
 				self.next_line()
+				thingy = false
 			else:
 				get_tree().change_scene("res://gameingame/BattleWView.tscn")
 	else:
-		self.percent_visible += delta * 30 * (3 if Input.is_action_pressed("click_anywhere") else 1) / len(self.text)
+		self.percent_visible += delta * 30 * (30 if thingy else 1) / len(self.text)
+		if (Input.is_action_just_pressed("click_anywhere")):
+			thingy = true
 
 func next_line():
 	var newln = script.pop_front()
-	self.percent_visible = float(len(self.text)) / (len(self.text) + len(newln))
-	self.text = self.text + ("\n" if self.text else "") + newln
-	print(self.text)
+#	self.percent_visible = float(len(self.text)) / (len(self.text) + len(newln))
+#	self.text = self.text + ("\n" if self.text else "") + newln
+	self.text = newln
+	self.percent_visible = 0
+#	print(self.text)
