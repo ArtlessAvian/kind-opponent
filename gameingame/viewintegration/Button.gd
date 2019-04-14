@@ -13,5 +13,5 @@ func _ready():
 	self.text = move.name
 
 func _process(delta):\
-	self.disabled = not move.available(player) or player.get_parent().turn_state != null
+	self.disabled = not move.available(player) or player.is_dead() or player.get_parent().turn_state != null
 	# ----------------------------------------------------------------- the battle. ^^^^^^^^^^^^ nice
