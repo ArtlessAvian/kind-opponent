@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://animations/AttackAnimation.tres" type="Animation" id=1]
 [ext_resource path="res://animations/DamageBlink.tres" type="Animation" id=2]
@@ -9,8 +9,8 @@
 [ext_resource path="res://Pixellari.tres" type="DynamicFont" id=7]
 [ext_resource path="res://PixellariSmall.tres" type="DynamicFont" id=8]
 [ext_resource path="res://gameingame/RichTextLabel.gd" type="Script" id=9]
-[ext_resource path="res://LoopingLabel.gd" type="Script" id=9]
-[ext_resource path="res://animations/LoopingLabel.tres" type="Animation" id=10]
+[ext_resource path="res://LoopingLabel.gd" type="Script" id=10]
+[ext_resource path="res://animations/LoopingLabel.tres" type="Animation" id=11]
 
 [node name="GameUI" type="Control"]
 anchor_right = 1.0
@@ -219,7 +219,7 @@ anchor_bottom = 0.6
 [node name="LoopingLabel" type="Control" parent="OpportunityBar"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource( 9 )
+script = ExtResource( 10 )
 
 [node name="OpportunityLabel" type="RichTextLabel" parent="OpportunityBar/LoopingLabel"]
 anchor_right = 1.0
@@ -244,7 +244,7 @@ scroll_active = false
 
 [node name="LoopAnim" type="AnimationPlayer" parent="OpportunityBar/LoopingLabel"]
 autoplay = "LoopingLabel"
-anims/LoopingLabel = ExtResource( 10 )
+anims/LoopingLabel = ExtResource( 11 )
 
 
 [editable path="UICanvas/EnemyUI/EnemyBars/EnemyAdvRegion/EnemyAdvBar"]
