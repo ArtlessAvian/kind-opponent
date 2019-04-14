@@ -4,6 +4,7 @@ extends Node
 signal user_feedback
 signal update_bars
 signal opportunity_turn
+signal update_text
 
 var yielding_for_queue = []
 var turn = 0 # why not its free
@@ -101,7 +102,8 @@ func _game_logic(player_action):
 		if ($Player.is_dead()):
 			self._text_box("You are ded (jk you win)")
 			self._text_box(str("Believability: ", 120/$Opponent._health, "%"))
-
+	if true:
+		self.emit_signal("update_text")
 	self._get_opportunity_attack()
 
 func _text_box(text):
