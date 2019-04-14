@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://animations/AttackAnimation.tres" type="Animation" id=1]
 [ext_resource path="res://animations/DamageBlink.tres" type="Animation" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://UIHealthBar.tscn" type="PackedScene" id=5]
 [ext_resource path="res://AdvBar.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Pixellari.tres" type="DynamicFont" id=7]
+[ext_resource path="res://PixellariSmall.tres" type="DynamicFont" id=8]
 
 [node name="GameUI" type="Control"]
 anchor_right = 1.0
@@ -65,6 +66,7 @@ anchor_right = 1.0
 anchor_bottom = 0.14
 
 [node name="EnemyBars" type="Control" parent="UICanvas/EnemyUI"]
+anchor_left = 0.5
 anchor_right = 1.0
 anchor_bottom = 1.0
 
@@ -73,7 +75,6 @@ anchor_right = 1.0
 anchor_bottom = 0.5
 
 [node name="EnemyHPBar" parent="UICanvas/EnemyUI/EnemyBars/EnemyHPregion" instance=ExtResource( 5 )]
-color = Color( 1, 0, 0, 1 )
 
 [node name="EnemyAdvRegion" type="Control" parent="UICanvas/EnemyUI/EnemyBars"]
 anchor_top = 0.5
@@ -89,7 +90,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="PlayerBars" type="Control" parent="UICanvas/PlayerUI"]
-anchor_right = 1.0
+anchor_right = 0.5
 anchor_bottom = 0.33
 
 [node name="PlayerHPRegion" type="Control" parent="UICanvas/PlayerUI/PlayerBars"]
@@ -173,6 +174,33 @@ margin_bottom = -5.0
 custom_fonts/font = ExtResource( 7 )
 text = "Heal"
 clip_text = true
+
+[node name="Panel" type="ColorRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.6
+anchor_right = 1.0
+anchor_bottom = 0.73
+margin_bottom = 2.0
+
+[node name="Control" type="ColorRect" parent="Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 5.0
+margin_right = -5.0
+margin_bottom = -5.0
+color = Color( 0.784314, 0.784314, 0.784314, 1 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel/Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 5.0
+margin_right = -5.0
+margin_bottom = -5.0
+custom_fonts/normal_font = ExtResource( 8 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+text = "Player uses attack.  It was super effective!"
 
 
 [editable path="UICanvas/EnemyUI/EnemyBars/EnemyAdvRegion/EnemyAdvBar"]
