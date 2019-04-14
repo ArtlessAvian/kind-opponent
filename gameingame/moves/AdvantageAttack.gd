@@ -26,15 +26,15 @@ func available(user):
 	return user.advantage > 0
 
 func summary(user, opportunity):
-	return 'Heavy Attack [%d/-%d/-%d]' % [_get_damage_value(user), _get_advantage_cost(user, opportunity), _get_knockback_value(user)]
+	return 'Lightning Barrage [%d/-%d/-%d]' % [_get_damage_value(user), _get_advantage_cost(user, opportunity), _get_knockback_value(user)]
 
 func describe(user, opportunity):
 	return """
-		Uses all your advantage to deal damage.
-		Damage is equal to 80%% of your advantage.
-		Deals a small amount of damage to you.
+		Use all your mana to fire a devastating barrage of lightning.
+		Damage is equal to 80%% of your current mana.
+		The hail is unpredictable and deals a small amount of damage backlash to the caster.
 		%s
 		Damage: %d
-		Advantage Cost: %d
-		Damage to you: %d
+		Mana Cost: %d
+		Damage to Caster: %d
 	""" % ['\nPERFECT OPPORTUNITY: Half advantage cost\n' if opportunity else '', _get_damage_value(user), _get_advantage_cost(user, opportunity), _get_knockback_value(user)]
