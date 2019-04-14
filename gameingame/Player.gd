@@ -18,7 +18,7 @@ func do_move(move_id):
 	$Moves.get_child(move_id).run(self, self.opponent)
 
 func take_damage(damage):
-	print("thingy", damage)
+	print("damage taken: ", damage)
 	self._health = max(0, self._health - damage)
 	self.last_damage = damage if damage > 0 else self.last_damage
 
