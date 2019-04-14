@@ -12,6 +12,7 @@ var yielding_for_queue = []
 var turn = 0 # why not its free
 var turn_state = null
 var opportunity_attack
+var bonus_believability = 0
 
 func _ready():
 	randomize()
@@ -91,6 +92,8 @@ func _game_logic(player_action):
 
 	self._text_box("Player " + ["zaps the opponent with concentrated magic", "calls down a series of lightning bolts", "reinforces its shields", "gathers energy from the earth"][player_action] + "!")
 	self.emit_signal("player_action",player_action)
+	if (opportunity_attack == player_action):
+		bonus_believability += 1
 	$Player.do_move(player_action, opportunity_attack == player_action)
 	yield()
 

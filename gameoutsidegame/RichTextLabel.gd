@@ -40,7 +40,7 @@ func _process(delta):
 				get_tree().change_scene("res://gameingame/BattleWView.tscn")
 	else:
 		self.percent_visible += delta * 30 * (30 if thingy else 1) / len(self.text)
-		if (Input.is_action_just_pressed("click_anywhere")):
+		if (Input.is_action_just_pressed("click_anywhere") or Input.is_action_just_pressed("ui_accept")):
 			thingy = true
 
 func next_line():
