@@ -36,7 +36,7 @@ func _get_opponent_move():
 	var weights = [
 		10, \
 		16 * exp(- pow($Opponent.advantage - 100, 2) / 2450), \
-		pow($Opponent.last_damage / 40, 1.2) * 10 + ($Opponent.max_health - $Opponent._health) / 10, \
+		pow($Opponent.last_damage / 45, 1.2) * 10 + 1200 / ($Opponent._health+10), \
 		10 - 5 * atan(0.03 * ($Opponent.advantage - 80)) \
 	]
 
