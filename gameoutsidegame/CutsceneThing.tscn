@@ -1,0 +1,48 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://sprites/ninepatch.png" type="Texture" id=1]
+[ext_resource path="res://Pixellari.tres" type="DynamicFont" id=2]
+[ext_resource path="res://gameoutsidegame/RichTextLabel.gd" type="Script" id=3]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -3847.05
+margin_top = -4003.49
+margin_right = 4344.95
+margin_bottom = 4188.51
+color = Color( 0.356863, 0.611765, 0.721569, 1 )
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = 25.0
+margin_top = 425.0
+margin_right = 999.0
+margin_bottom = 575.0
+texture = ExtResource( 1 )
+region_rect = Rect2( 1, 0, 63, 64 )
+patch_margin_left = 15
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="RichTextLabel" type="RichTextLabel" parent="NinePatchRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 20.0
+margin_top = 20.0
+margin_right = -20.0
+margin_bottom = -20.0
+custom_fonts/normal_font = ExtResource( 2 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+visible_characters = 0
+percent_visible = 0.0
+scroll_active = false
+scroll_following = true
+script = ExtResource( 3 )
+
