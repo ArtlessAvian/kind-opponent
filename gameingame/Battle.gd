@@ -34,7 +34,8 @@ func _get_opponent_move():
 	# 3 = Charge
 	var weights = [
 		1000 if $Player._health < 20 else 10, \
-		10000 if $Player._health < $Opponent.advantage else 20 * exp(- 0.5 * pow($Opponent.advantage - 100, 2) / 1600), \
+		10000 if $Player._health < $Opponent.advantage * $Opponent.get_child(0).get_child(1).efficiency \
+			else 20 * exp(- 0.5 * pow($Opponent.advantage - 100, 2) / 1600), \
 		$Opponent.last_damage / 4, \
 		200 / max($Opponent.advantage, 0.1) \
 	]
