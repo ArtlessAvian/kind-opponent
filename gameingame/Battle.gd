@@ -40,7 +40,6 @@ func _get_opponent_move():
 		200 / max($Opponent.advantage, 0.1) \
 	]
 
-	
 	var allowed = [
 		$Opponent.advantage >= $Opponent.get_child(0).get_child(0).advantage_cost,
 		$Opponent.advantage > 0,
@@ -48,8 +47,7 @@ func _get_opponent_move():
 		true
 	]
 	
-	print("Weight array:", weights)
-	print("allowed actions: ", allowed)
+	print(str("weight array ", weights, " allowed ", allowed))
 
 	var total_weight = 0
 	for action_index in range(4):
@@ -58,12 +56,12 @@ func _get_opponent_move():
 			
 	var weight_target = rand_range(0, total_weight)
 	print("total weight %f target weight %f" % [total_weight, weight_target])
+	
 	for action_index in range(4):
 		if allowed[action_index]:
 			weight_target -= pow(weights[action_index], 2)
 
 			if weight_target <= 0:
-				print("action index ", action_index)
 				return action_index
 
 func _get_opportunity_attack():
