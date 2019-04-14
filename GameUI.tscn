@@ -348,14 +348,14 @@ scroll_active = false
 autoplay = "LoopingLabel"
 anims/LoopingLabel = ExtResource( 19 )
 
-[connection signal="update_bars" from="BattleCanvas/PlayerRegion/PlayerSprite" to="UICanvas/PlayerUI/PlayerBars/PlayerAdvRegion/EnemyAdvBar" method="_on_Battle_update_bars"]
 [connection signal="update_bars" from="BattleCanvas/PlayerRegion/PlayerSprite" to="UICanvas/EnemyUI/EnemyBars/EnemyAdvRegion/EnemyAdvBar" method="_on_Battle_update_bars"]
-[connection signal="update_bars" from="BattleCanvas/PlayerRegion/PlayerSprite" to="UICanvas/EnemyUI/EnemyBars/EnemyHPregion/EnemyHPBar" method="_on_Battle_update_bars"]
 [connection signal="update_bars" from="BattleCanvas/PlayerRegion/PlayerSprite" to="UICanvas/PlayerUI/PlayerBars/PlayerHPRegion/PlayerHealthBar" method="_on_Battle_update_bars"]
-[connection signal="update_bars" from="BattleCanvas/EnemyRegion/EnemySprite" to="UICanvas/PlayerUI/PlayerBars/PlayerAdvRegion/EnemyAdvBar" method="_on_Battle_update_bars"]
+[connection signal="update_bars" from="BattleCanvas/PlayerRegion/PlayerSprite" to="UICanvas/EnemyUI/EnemyBars/EnemyHPregion/EnemyHPBar" method="_on_Battle_update_bars"]
+[connection signal="update_bars" from="BattleCanvas/PlayerRegion/PlayerSprite" to="UICanvas/PlayerUI/PlayerBars/PlayerAdvRegion/EnemyAdvBar" method="_on_Battle_update_bars"]
 [connection signal="update_bars" from="BattleCanvas/EnemyRegion/EnemySprite" to="UICanvas/EnemyUI/EnemyBars/EnemyAdvRegion/EnemyAdvBar" method="_on_Battle_update_bars"]
-[connection signal="update_bars" from="BattleCanvas/EnemyRegion/EnemySprite" to="UICanvas/EnemyUI/EnemyBars/EnemyHPregion/EnemyHPBar" method="_on_Battle_update_bars"]
 [connection signal="update_bars" from="BattleCanvas/EnemyRegion/EnemySprite" to="UICanvas/PlayerUI/PlayerBars/PlayerHPRegion/PlayerHealthBar" method="_on_Battle_update_bars"]
+[connection signal="update_bars" from="BattleCanvas/EnemyRegion/EnemySprite" to="UICanvas/EnemyUI/EnemyBars/EnemyHPregion/EnemyHPBar" method="_on_Battle_update_bars"]
+[connection signal="update_bars" from="BattleCanvas/EnemyRegion/EnemySprite" to="UICanvas/PlayerUI/PlayerBars/PlayerAdvRegion/EnemyAdvBar" method="_on_Battle_update_bars"]
 
 [editable path="SoundEffects"]
 

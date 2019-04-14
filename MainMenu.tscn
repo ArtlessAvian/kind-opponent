@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://MenuController.gd" type="Script" id=1]
 [ext_resource path="res://Pixellari.tres" type="DynamicFont" id=2]
 [ext_resource path="res://PixellariBig.tres" type="DynamicFont" id=3]
+[ext_resource path="res://PixellariSmall.tres" type="DynamicFont" id=4]
 
 [sub_resource type="Animation" id=1]
 resource_name = "New Anim"
@@ -99,6 +100,8 @@ text = " Kind Opponent"
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = -1.22766
+margin_right = -1.22766
 color = Color( 0.933333, 0.933333, 0.933333, 1 )
 
 [node name="Label" type="Label" parent="Credits"]
@@ -106,7 +109,7 @@ anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -360.0
 margin_right = 366.0
-margin_bottom = 342.0
+margin_bottom = 188.0
 custom_fonts/font = ExtResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "VGDC UCI Spring 2019
@@ -118,9 +121,9 @@ valign = 1
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -291.0
-margin_top = 156.0
+margin_top = -45.69
 margin_right = 292.0
-margin_bottom = 473.0
+margin_bottom = 457.31
 custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Ryan Chang - Programmer"
@@ -131,9 +134,9 @@ valign = 1
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -291.0
-margin_top = 137.0
+margin_top = -45.69
 margin_right = 292.0
-margin_bottom = 558.0
+margin_bottom = 542.31
 custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Jack Sun - Programmer, Writing"
@@ -144,9 +147,9 @@ valign = 1
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -291.0
-margin_top = 119.0
+margin_top = -45.69
 margin_right = 292.0
-margin_bottom = 642.0
+margin_bottom = 626.31
 custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Ryan N. Ward - Design"
@@ -157,9 +160,9 @@ valign = 1
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -291.0
-margin_top = 97.0
+margin_top = -45.69
 margin_right = 292.0
-margin_bottom = 724.0
+margin_bottom = 708.31
 custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Kyle Wong - Programming"
@@ -172,11 +175,73 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 margin_left = -181.0
-margin_top = -121.0
+margin_top = -236.61
 margin_right = 182.0
-margin_bottom = -80.0
+margin_bottom = -195.61
 custom_fonts/font = ExtResource( 2 )
 text = "Back!"
+
+[node name="AssetCredits" type="Control" parent="Credits"]
+editor/display_folded = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -435.43
+margin_top = 131.18
+margin_right = 186.56
+margin_bottom = 316.95
+
+[node name="GameMusic" type="Label" parent="Credits/AssetCredits"]
+anchor_right = 1.0
+anchor_bottom = 0.1
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Credit to Metaruka for game-game.ogg        -- https://opengameart.org/content/game-game"
+
+[node name="HitSound" type="Label" parent="Credits/AssetCredits"]
+anchor_top = 0.1
+anchor_bottom = 0.2
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Credit to CGEffex for hit sounds	                 -- https://opengameart.org/content/punch-slap-n-kick"
+
+[node name="HealSound" type="Label" parent="Credits/AssetCredits"]
+anchor_top = 0.2
+anchor_bottom = 0.3
+margin_bottom = 55.731
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Credit to David McKee for heal sound          -- https://opengameart.org/content/ui-accept-or-forward"
+
+[node name="UISound" type="Label" parent="Credits/AssetCredits"]
+anchor_top = 0.3
+anchor_bottom = 0.4
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Credit to qubodup for UI sounds                 -- https://opengameart.org/content/click"
+
+[node name="ChargeSound" type="Label" parent="Credits/AssetCredits"]
+anchor_top = 0.4
+anchor_bottom = 0.5
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Credit to JaggedStone for charge sound       -- https://opengameart.org/content/magic-spell-sfx"
+
+[node name="SpeechBubble" type="Label" parent="Credits/AssetCredits"]
+anchor_top = 0.5
+anchor_bottom = 0.6
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Credit to TokyoGeisha for speech bubble art -- https://opengameart.org/content/pixel-speech-bubbles"
+
+[node name="Background" type="Label" parent="Credits/AssetCredits"]
+anchor_top = 0.6
+anchor_bottom = 0.7
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Credit to bevouliin.com for background art   -- https://opengameart.org/content/bevouliin-free-game
+                                                                 -background-for-game-developers"
 
 [node name="TransitionToGame" type="ColorRect" parent="."]
 visible = false
