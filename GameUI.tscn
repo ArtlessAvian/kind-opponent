@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://animations/AttackAnimation.tres" type="Animation" id=1]
 [ext_resource path="res://animations/DamageBlink.tres" type="Animation" id=2]
@@ -8,6 +8,8 @@
 [ext_resource path="res://AdvBar.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Pixellari.tres" type="DynamicFont" id=7]
 [ext_resource path="res://PixellariSmall.tres" type="DynamicFont" id=8]
+[ext_resource path="res://gameingame/RichTextLabel.gd" type="Script" id=9]
+[ext_resource path="res://animations/LoopingLabel.tres" type="Animation" id=10]
 
 [node name="GameUI" type="Control"]
 anchor_right = 1.0
@@ -75,6 +77,7 @@ anchor_right = 1.0
 anchor_bottom = 0.5
 
 [node name="EnemyHPBar" parent="UICanvas/EnemyUI/EnemyBars/EnemyHPregion" instance=ExtResource( 5 )]
+copy_health = true
 
 [node name="EnemyAdvRegion" type="Control" parent="UICanvas/EnemyUI/EnemyBars"]
 anchor_top = 0.5
@@ -98,6 +101,8 @@ anchor_right = 1.0
 anchor_bottom = 0.5
 
 [node name="PlayerHealthBar" parent="UICanvas/PlayerUI/PlayerBars/PlayerHPRegion" instance=ExtResource( 5 )]
+copy_health = true
+copy_player = true
 
 [node name="PlayerAdvRegion" type="Control" parent="UICanvas/PlayerUI/PlayerBars"]
 anchor_top = 0.5
@@ -105,6 +110,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="EnemyAdvBar" parent="UICanvas/PlayerUI/PlayerBars/PlayerAdvRegion" instance=ExtResource( 6 )]
+copy_player = true
 
 [node name="PlayerActions" type="Control" parent="UICanvas/PlayerUI"]
 anchor_top = 0.33
@@ -200,9 +206,43 @@ margin_right = -5.0
 margin_bottom = -5.0
 custom_fonts/normal_font = ExtResource( 8 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
-text = "Player uses attack.  It was super effective!"
 scroll_active = false
 scroll_following = true
+script = ExtResource( 9 )
+
+[node name="OpportunityBar" type="Control" parent="."]
+anchor_top = 0.55
+anchor_right = 1.0
+anchor_bottom = 0.6
+
+[node name="LoopingLabel" type="Control" parent="OpportunityBar"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="OpportunityLabel" type="RichTextLabel" parent="OpportunityBar/LoopingLabel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 266.855
+margin_right = 300.056
+custom_fonts/normal_font = ExtResource( 7 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+text = " PERFECT OPPORTUNITY | PERFECT OPPORTUNITY | PERFECT OPPORTUNITY |
+"
+scroll_active = false
+
+[node name="OpportunityLabel2" type="RichTextLabel" parent="OpportunityBar/LoopingLabel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -790.145
+margin_right = -757.145
+custom_fonts/normal_font = ExtResource( 7 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+text = " PERFECT OPPORTUNITY | PERFECT OPPORTUNITY | PERFECT OPPORTUNITY |
+"
+scroll_active = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="OpportunityBar/LoopingLabel"]
+anims/LoopingLabel = ExtResource( 10 )
 
 
 [editable path="UICanvas/EnemyUI/EnemyBars/EnemyAdvRegion/EnemyAdvBar"]

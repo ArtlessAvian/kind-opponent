@@ -1,14 +1,23 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://GameUI.tscn" type="PackedScene" id=1]
-[ext_resource path="res://gameingame/viewintegration/Button.gd" type="Script" id=2]
-[ext_resource path="res://gameingame/Battle.tscn" type="PackedScene" id=3]
-[ext_resource path="res://gameingame/RichTextLabel.gd" type="Script" id=4]
+[ext_resource path="res://animations/IdleBounce.tres" type="Animation" id=2]
+[ext_resource path="res://gameingame/viewintegration/Button.gd" type="Script" id=3]
+[ext_resource path="res://gameingame/Battle.tscn" type="PackedScene" id=4]
 
 [node name="GameUI" index="0" instance=ExtResource( 1 )]
 
+[node name="ColorRect" parent="BattleCanvas/PlayerRegion" index="0"]
+margin_right = -0.000289917
+grow_horizontal = 2
+grow_vertical = 2
+rect_scale = Vector2( 0.996845, 0.988109 )
+rect_pivot_offset = Vector2( 45, 75 )
+
+[node name="AnimationPlayer" parent="BattleCanvas/PlayerRegion/ColorRect" index="0"]
+anims/IdleBounce = ExtResource( 2 )
+
 [node name="EnemyHPBar" parent="UICanvas/EnemyUI/EnemyBars/EnemyHPregion" index="0"]
-copy_health = true
 target_path = NodePath("../../../../../Battle")
 
 [node name="EnemyAdvBar" parent="UICanvas/EnemyUI/EnemyBars/EnemyAdvRegion" index="0"]
@@ -16,64 +25,55 @@ target_path = NodePath("../../../../../Battle")
 
 [node name="PlayerHealthBar" parent="UICanvas/PlayerUI/PlayerBars/PlayerHPRegion" index="0"]
 editor/display_folded = true
-copy_health = true
-copy_player = true
 target_path = NodePath("../../../../../Battle")
 
 [node name="EnemyAdvBar" parent="UICanvas/PlayerUI/PlayerBars/PlayerAdvRegion" index="0"]
-copy_player = true
 target_path = NodePath("../../../../../Battle")
 
 [node name="Attack1Button" parent="UICanvas/PlayerUI/PlayerActions/Action1Region" index="0"]
 focus_neighbour_right = NodePath("../../Action3Region/Attack3Button")
 focus_neighbour_bottom = NodePath("../../Action2Region/Attack2Button")
-script = ExtResource( 2 )
-player_path = NodePath("../../../../../Battle/Player")
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 3 )
 
 [node name="Attack2Button" parent="UICanvas/PlayerUI/PlayerActions/Action2Region" index="0"]
 focus_neighbour_top = NodePath("../../Action1Region/Attack1Button")
 focus_neighbour_right = NodePath("../../Action4Region/Attack4Button")
-script = ExtResource( 2 )
-player_path = NodePath("../../../../../Battle/Player")
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 3 )
 move_id = 1
 
 [node name="Attack3Button" parent="UICanvas/PlayerUI/PlayerActions/Action3Region" index="0"]
 focus_neighbour_left = NodePath("../../Action1Region/Attack1Button")
 focus_neighbour_bottom = NodePath("../../Action4Region/Attack4Button")
-script = ExtResource( 2 )
-player_path = NodePath("../../../../../Battle/Player")
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 3 )
 move_id = 2
 
 [node name="Attack4Button" parent="UICanvas/PlayerUI/PlayerActions/Action4Region" index="0"]
 focus_neighbour_left = NodePath("../../Action2Region/Attack2Button")
 focus_neighbour_top = NodePath("../../Action3Region/Attack3Button")
-script = ExtResource( 2 )
-player_path = NodePath("../../../../../Battle/Player")
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 3 )
 move_id = 3
 
-[node name="Battle" parent="." index="3" instance=ExtResource( 3 )]
+[node name="Battle" parent="." index="3" instance=ExtResource( 4 )]
 
 [node name="RichTextLabel" parent="Panel/Control" index="0"]
-visible_characters = 0
-percent_visible = 0.0
 text = "
 
 
 
-
-
-
 "
-script = ExtResource( 4 )
 
 [connection signal="button_down" from="UICanvas/PlayerUI/PlayerActions/Action1Region/Attack1Button" to="Battle" method="_on_button_down" binds= [ 0 ]]
 [connection signal="button_down" from="UICanvas/PlayerUI/PlayerActions/Action2Region/Attack2Button" to="Battle" method="_on_button_down" binds= [ 1 ]]
 [connection signal="button_down" from="UICanvas/PlayerUI/PlayerActions/Action3Region/Attack3Button" to="Battle" method="_on_button_down" binds= [ 2 ]]
 [connection signal="button_down" from="UICanvas/PlayerUI/PlayerActions/Action4Region/Attack4Button" to="Battle" method="_on_button_down" binds= [ 3 ]]
-[connection signal="update_bars" from="Battle" to="UICanvas/EnemyUI/EnemyBars/EnemyHPregion/EnemyHPBar" method="_on_Battle_update_bars"]
-[connection signal="update_bars" from="Battle" to="UICanvas/EnemyUI/EnemyBars/EnemyAdvRegion/EnemyAdvBar" method="update_children"]
-[connection signal="update_bars" from="Battle" to="UICanvas/PlayerUI/PlayerBars/PlayerAdvRegion/EnemyAdvBar" method="_on_Battle_update_bars"]
 [connection signal="update_bars" from="Battle" to="UICanvas/PlayerUI/PlayerBars/PlayerHPRegion/PlayerHealthBar" method="update_children"]
+[connection signal="update_bars" from="Battle" to="UICanvas/PlayerUI/PlayerBars/PlayerAdvRegion/EnemyAdvBar" method="_on_Battle_update_bars"]
+[connection signal="update_bars" from="Battle" to="UICanvas/EnemyUI/EnemyBars/EnemyAdvRegion/EnemyAdvBar" method="update_children"]
+[connection signal="update_bars" from="Battle" to="UICanvas/EnemyUI/EnemyBars/EnemyHPregion/EnemyHPBar" method="_on_Battle_update_bars"]
 [connection signal="user_feedback" from="Battle" to="Panel/Control/RichTextLabel" method="_on_Battle_user_feedback"]
 
 [editable path="UICanvas/EnemyUI/EnemyBars/EnemyAdvRegion/EnemyAdvBar"]
