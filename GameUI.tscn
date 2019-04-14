@@ -1,26 +1,34 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=20 format=2]
 
-[ext_resource path="res://sprites/full-background.png" type="Texture" id=1]
-[ext_resource path="res://PlayerAnimator.gd" type="Script" id=2]
-[ext_resource path="res://animations/AttackAnimation.tres" type="Animation" id=3]
-[ext_resource path="res://animations/ChargeAnimation.tres" type="Animation" id=4]
-[ext_resource path="res://animations/IdleBounce.tres" type="Animation" id=5]
-[ext_resource path="res://PixellariSmall.tres" type="DynamicFont" id=6]
-[ext_resource path="res://EnemyAnimator.gd" type="Script" id=7]
-[ext_resource path="res://animations/EnemyAttackAnimation.tres" type="Animation" id=8]
-[ext_resource path="res://animations/HealAnimation.tres" type="Animation" id=9]
-[ext_resource path="res://sprites/speech_bubble1.png" type="Texture" id=10]
-[ext_resource path="res://EnemyText.gd" type="Script" id=11]
-[ext_resource path="res://UIHealthBar.tscn" type="PackedScene" id=12]
-[ext_resource path="res://AdvBar.tscn" type="PackedScene" id=13]
-[ext_resource path="res://Pixellari.tres" type="DynamicFont" id=14]
-[ext_resource path="res://gameingame/RichTextLabel.gd" type="Script" id=15]
-[ext_resource path="res://LoopingLabel.gd" type="Script" id=16]
-[ext_resource path="res://animations/LoopingLabel.tres" type="Animation" id=17]
+[ext_resource path="res://SoundEffects.tscn" type="PackedScene" id=1]
+[ext_resource path="res://sounds/01 game-game_0.ogg" type="AudioStream" id=2]
+[ext_resource path="res://sprites/full-background.png" type="Texture" id=3]
+[ext_resource path="res://PlayerAnimator.gd" type="Script" id=4]
+[ext_resource path="res://animations/AttackAnimation.tres" type="Animation" id=5]
+[ext_resource path="res://animations/ChargeAnimation.tres" type="Animation" id=6]
+[ext_resource path="res://animations/HealAnimation.tres" type="Animation" id=7]
+[ext_resource path="res://animations/IdleBounce.tres" type="Animation" id=8]
+[ext_resource path="res://PixellariSmall.tres" type="DynamicFont" id=9]
+[ext_resource path="res://EnemyAnimator.gd" type="Script" id=10]
+[ext_resource path="res://animations/EnemyAttackAnimation.tres" type="Animation" id=11]
+[ext_resource path="res://sprites/speech_bubble1.png" type="Texture" id=12]
+[ext_resource path="res://EnemyText.gd" type="Script" id=13]
+[ext_resource path="res://UIHealthBar.tscn" type="PackedScene" id=14]
+[ext_resource path="res://AdvBar.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Pixellari.tres" type="DynamicFont" id=16]
+[ext_resource path="res://gameingame/RichTextLabel.gd" type="Script" id=17]
+[ext_resource path="res://LoopingLabel.gd" type="Script" id=18]
+[ext_resource path="res://animations/LoopingLabel.tres" type="Animation" id=19]
 
 [node name="GameUI" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+
+[node name="SoundEffects" parent="." instance=ExtResource( 1 )]
+
+[node name="BattleMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 2 )
+autoplay = true
 
 [node name="LowerBackground" type="ColorRect" parent="."]
 anchor_top = 0.6
@@ -36,7 +44,7 @@ margin_top = -191.65
 margin_bottom = -191.65
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture = ExtResource( 1 )
+texture = ExtResource( 3 )
 expand = true
 stretch_mode = 1
 
@@ -60,16 +68,16 @@ margin_left = 106.142
 margin_right = 106.142
 rect_scale = Vector2( 0.996845, 0.988106 )
 rect_pivot_offset = Vector2( 45, 75 )
-script = ExtResource( 2 )
+script = ExtResource( 4 )
 
 [node name="ActionAnimPlayer" type="AnimationPlayer" parent="BattleCanvas/PlayerRegion/PlayerSprite"]
-anims/AttackAnimation = ExtResource( 3 )
-anims/ChargeAnimation = ExtResource( 4 )
-anims/HealAnimation = ExtResource( 4 )
+anims/AttackAnimation = ExtResource( 5 )
+anims/ChargeAnimation = ExtResource( 6 )
+anims/HealAnimation = ExtResource( 7 )
 
 [node name="IdleAnimPlayer" type="AnimationPlayer" parent="BattleCanvas/PlayerRegion/PlayerSprite"]
 autoplay = "IdleBounce"
-anims/IdleBounce = ExtResource( 5 )
+anims/IdleBounce = ExtResource( 8 )
 
 [node name="LevelText" type="RichTextLabel" parent="BattleCanvas/PlayerRegion/PlayerSprite"]
 anchor_right = 1.0
@@ -77,7 +85,7 @@ anchor_bottom = 0.2
 margin_top = -22.97
 margin_bottom = -22.97
 rect_pivot_offset = Vector2( 45, 75 )
-custom_fonts/normal_font = ExtResource( 6 )
+custom_fonts/normal_font = ExtResource( 9 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 bbcode_enabled = true
 bbcode_text = "[center]Lvl: 60"
@@ -96,21 +104,19 @@ margin_bottom = 8.58
 anchor_left = 0.8
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -80.183
-margin_right = -80.183
 margin_bottom = 18.0
 rect_pivot_offset = Vector2( 45, 75 )
 color = Color( 0.996078, 0.211765, 0.211765, 1 )
-script = ExtResource( 7 )
+script = ExtResource( 10 )
 
 [node name="ActionAnimPlayer" type="AnimationPlayer" parent="BattleCanvas/EnemyRegion/EnemySprite"]
-anims/ChargeAnimation = ExtResource( 4 )
-anims/EnemyAttackAnimation = ExtResource( 8 )
-anims/HealAnimation = ExtResource( 9 )
+anims/ChargeAnimation = ExtResource( 6 )
+anims/EnemyAttackAnimation = ExtResource( 11 )
+anims/HealAnimation = ExtResource( 7 )
 
 [node name="IdleAnimPlayer" type="AnimationPlayer" parent="BattleCanvas/EnemyRegion/EnemySprite"]
 autoplay = "IdleBounce"
-anims/IdleBounce = ExtResource( 5 )
+anims/IdleBounce = ExtResource( 8 )
 
 [node name="LevelText" type="RichTextLabel" parent="BattleCanvas/EnemyRegion/EnemySprite"]
 anchor_right = 1.0
@@ -118,7 +124,7 @@ anchor_bottom = 0.2
 margin_top = -20.34
 margin_bottom = -20.34
 rect_pivot_offset = Vector2( 45, 75 )
-custom_fonts/normal_font = ExtResource( 6 )
+custom_fonts/normal_font = ExtResource( 9 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 bbcode_enabled = true
 bbcode_text = "[center]Lvl: 40"
@@ -133,7 +139,7 @@ anchor_bottom = 0.8
 margin_top = -40.0
 margin_right = -5.0
 margin_bottom = -40.0
-texture = ExtResource( 10 )
+texture = ExtResource( 12 )
 region_rect = Rect2( 0, 0, 300, 96 )
 patch_margin_left = 3
 patch_margin_top = 3
@@ -147,10 +153,10 @@ margin_left = 10.0
 margin_top = 10.0
 margin_right = -30.0
 margin_bottom = -10.0
-custom_fonts/normal_font = ExtResource( 6 )
+custom_fonts/normal_font = ExtResource( 9 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 scroll_active = false
-script = ExtResource( 11 )
+script = ExtResource( 13 )
 reveal_speed = 1.5
 reveal_duration = 2.7
 fade_duration = 0.5
@@ -173,7 +179,7 @@ anchor_bottom = 1.0
 anchor_right = 1.0
 anchor_bottom = 0.5
 
-[node name="EnemyHPBar" parent="UICanvas/EnemyUI/EnemyBars/EnemyHPregion" instance=ExtResource( 12 )]
+[node name="EnemyHPBar" parent="UICanvas/EnemyUI/EnemyBars/EnemyHPregion" instance=ExtResource( 14 )]
 copy_health = true
 
 [node name="EnemyAdvRegion" type="Control" parent="UICanvas/EnemyUI/EnemyBars"]
@@ -181,7 +187,7 @@ anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 1.0
 
-[node name="EnemyAdvBar" parent="UICanvas/EnemyUI/EnemyBars/EnemyAdvRegion" instance=ExtResource( 13 )]
+[node name="EnemyAdvBar" parent="UICanvas/EnemyUI/EnemyBars/EnemyAdvRegion" instance=ExtResource( 15 )]
 editor/display_folded = true
 
 [node name="PlayerUI" type="Control" parent="UICanvas"]
@@ -197,7 +203,7 @@ anchor_bottom = 0.33
 anchor_right = 1.0
 anchor_bottom = 0.5
 
-[node name="PlayerHealthBar" parent="UICanvas/PlayerUI/PlayerBars/PlayerHPRegion" instance=ExtResource( 12 )]
+[node name="PlayerHealthBar" parent="UICanvas/PlayerUI/PlayerBars/PlayerHPRegion" instance=ExtResource( 14 )]
 copy_health = true
 copy_player = true
 
@@ -206,7 +212,7 @@ anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 1.0
 
-[node name="EnemyAdvBar" parent="UICanvas/PlayerUI/PlayerBars/PlayerAdvRegion" instance=ExtResource( 13 )]
+[node name="EnemyAdvBar" parent="UICanvas/PlayerUI/PlayerBars/PlayerAdvRegion" instance=ExtResource( 15 )]
 copy_player = true
 
 [node name="PlayerActions" type="Control" parent="UICanvas/PlayerUI"]
@@ -225,7 +231,7 @@ margin_left = 5.0
 margin_top = 5.0
 margin_right = -5.0
 margin_bottom = -5.0
-custom_fonts/font = ExtResource( 14 )
+custom_fonts/font = ExtResource( 16 )
 text = "Attack1"
 clip_text = true
 
@@ -241,7 +247,7 @@ margin_left = 5.0
 margin_top = 5.0
 margin_right = -5.0
 margin_bottom = -5.0
-custom_fonts/font = ExtResource( 14 )
+custom_fonts/font = ExtResource( 16 )
 text = "Charge"
 clip_text = true
 
@@ -257,7 +263,7 @@ margin_left = 5.0
 margin_top = 5.0
 margin_right = -5.0
 margin_bottom = -5.0
-custom_fonts/font = ExtResource( 14 )
+custom_fonts/font = ExtResource( 16 )
 text = "Attack2"
 clip_text = true
 
@@ -274,7 +280,7 @@ margin_left = 5.0
 margin_top = 5.0
 margin_right = -5.0
 margin_bottom = -5.0
-custom_fonts/font = ExtResource( 14 )
+custom_fonts/font = ExtResource( 16 )
 text = "Heal"
 clip_text = true
 
@@ -301,11 +307,11 @@ margin_left = 5.0
 margin_top = 5.0
 margin_right = -5.0
 margin_bottom = -5.0
-custom_fonts/normal_font = ExtResource( 6 )
+custom_fonts/normal_font = ExtResource( 9 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 scroll_active = false
 scroll_following = true
-script = ExtResource( 15 )
+script = ExtResource( 17 )
 
 [node name="OpportunityBar" type="Control" parent="."]
 anchor_top = 0.55
@@ -315,13 +321,13 @@ anchor_bottom = 0.6
 [node name="LoopingLabel" type="Control" parent="OpportunityBar"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource( 16 )
+script = ExtResource( 18 )
 
 [node name="OpportunityLabel" type="RichTextLabel" parent="OpportunityBar/LoopingLabel"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_right = 33.1882
-custom_fonts/normal_font = ExtResource( 14 )
+custom_fonts/normal_font = ExtResource( 16 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 text = " PERFECT OPPORTUNITY | PERFECT OPPORTUNITY | PERFECT OPPORTUNITY |
 "
@@ -332,7 +338,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -1057.0
 margin_right = -1024.0
-custom_fonts/normal_font = ExtResource( 14 )
+custom_fonts/normal_font = ExtResource( 16 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 text = " PERFECT OPPORTUNITY | PERFECT OPPORTUNITY | PERFECT OPPORTUNITY |
 "
@@ -340,15 +346,17 @@ scroll_active = false
 
 [node name="LoopAnim" type="AnimationPlayer" parent="OpportunityBar/LoopingLabel"]
 autoplay = "LoopingLabel"
-anims/LoopingLabel = ExtResource( 17 )
+anims/LoopingLabel = ExtResource( 19 )
 
-[connection signal="update_bars" from="BattleCanvas/PlayerRegion/PlayerSprite" to="UICanvas/EnemyUI/EnemyBars/EnemyAdvRegion/EnemyAdvBar" method="_on_Battle_update_bars"]
-[connection signal="update_bars" from="BattleCanvas/PlayerRegion/PlayerSprite" to="UICanvas/PlayerUI/PlayerBars/PlayerHPRegion/PlayerHealthBar" method="_on_Battle_update_bars"]
 [connection signal="update_bars" from="BattleCanvas/PlayerRegion/PlayerSprite" to="UICanvas/PlayerUI/PlayerBars/PlayerAdvRegion/EnemyAdvBar" method="_on_Battle_update_bars"]
+[connection signal="update_bars" from="BattleCanvas/PlayerRegion/PlayerSprite" to="UICanvas/EnemyUI/EnemyBars/EnemyAdvRegion/EnemyAdvBar" method="_on_Battle_update_bars"]
 [connection signal="update_bars" from="BattleCanvas/PlayerRegion/PlayerSprite" to="UICanvas/EnemyUI/EnemyBars/EnemyHPregion/EnemyHPBar" method="_on_Battle_update_bars"]
-[connection signal="update_bars" from="BattleCanvas/EnemyRegion/EnemySprite" to="UICanvas/EnemyUI/EnemyBars/EnemyAdvRegion/EnemyAdvBar" method="_on_Battle_update_bars"]
-[connection signal="update_bars" from="BattleCanvas/EnemyRegion/EnemySprite" to="UICanvas/PlayerUI/PlayerBars/PlayerHPRegion/PlayerHealthBar" method="_on_Battle_update_bars"]
+[connection signal="update_bars" from="BattleCanvas/PlayerRegion/PlayerSprite" to="UICanvas/PlayerUI/PlayerBars/PlayerHPRegion/PlayerHealthBar" method="_on_Battle_update_bars"]
 [connection signal="update_bars" from="BattleCanvas/EnemyRegion/EnemySprite" to="UICanvas/PlayerUI/PlayerBars/PlayerAdvRegion/EnemyAdvBar" method="_on_Battle_update_bars"]
+[connection signal="update_bars" from="BattleCanvas/EnemyRegion/EnemySprite" to="UICanvas/EnemyUI/EnemyBars/EnemyAdvRegion/EnemyAdvBar" method="_on_Battle_update_bars"]
 [connection signal="update_bars" from="BattleCanvas/EnemyRegion/EnemySprite" to="UICanvas/EnemyUI/EnemyBars/EnemyHPregion/EnemyHPBar" method="_on_Battle_update_bars"]
+[connection signal="update_bars" from="BattleCanvas/EnemyRegion/EnemySprite" to="UICanvas/PlayerUI/PlayerBars/PlayerHPRegion/PlayerHealthBar" method="_on_Battle_update_bars"]
+
+[editable path="SoundEffects"]
 
 [editable path="UICanvas/EnemyUI/EnemyBars/EnemyAdvRegion/EnemyAdvBar"]
