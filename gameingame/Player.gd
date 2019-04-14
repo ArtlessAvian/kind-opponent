@@ -14,8 +14,8 @@ var last_damage = 0
 # private???
 onready var _health = max_health
 
-func do_move(move_id):
-	$Moves.get_child(move_id).run(self, self.opponent)
+func do_move(move_id, opportunity):
+	$Moves.get_child(move_id).run(self, self.opponent, opportunity)
 
 func take_damage(damage):
 	print("thingy", damage)

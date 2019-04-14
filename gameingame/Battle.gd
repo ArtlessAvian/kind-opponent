@@ -11,6 +11,7 @@ var turn_state = null
 var opportunity_attack
 
 func _ready():
+	randomize()
 	$Player.opponent = $Opponent
 	$Opponent.opponent = $Player
 	self._get_opportunity_attack()
@@ -75,9 +76,9 @@ func _game_logic(player_action):
 	self._text_box(str("Turn ", turn, ":"))
 	yield()
 
-	self._text_box("player used " + ["attack", "attack but different", "heal", "charge"][player_action])
+	self._text_box("Player " + ["attacks", "attacks (but differently)", "heals", "charges"][player_action] + "!")
 	yield()
-	$Player.do_move(player_action)
+	$Player.do_move(player_action, opportunity_attack == player_action)
 	self.emit_signal("update_bars")
 	yield()
 
@@ -86,9 +87,9 @@ func _game_logic(player_action):
 	
 	else:
 		var opponent_move = _get_opponent_move()
-		self._text_box("opponent used " + ["attack", "attack but different", "heal", "charge"][opponent_move])
+		self._text_box("The opponent " + ["attacks", "attacks (but differently)", "heals", "charges"][opponent_move] + "!")
 		yield()
-		$Opponent.do_move(opponent_move)
+		$Opponent.do_move(opponent_move, false)
 		self.emit_signal("update_bars")
 		yield()
 
