@@ -30,9 +30,9 @@ size_flags_vertical = 0
 custom_fonts/normal_font = ExtResource( 3 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 bbcode_enabled = true
-bbcode_text = "[center] ADV: 100/100"
-text = " ADV: 100/100"
+bbcode_text = "[center] MANA: 100/100"
+text = " MANA: 100/100"
 scroll_active = false
 script = ExtResource( 4 )
-type_prefix = "ADV: "
+type_prefix = "MANA: "
 
