@@ -9,6 +9,7 @@
 [ext_resource path="res://Pixellari.tres" type="DynamicFont" id=7]
 [ext_resource path="res://PixellariSmall.tres" type="DynamicFont" id=8]
 [ext_resource path="res://gameingame/RichTextLabel.gd" type="Script" id=9]
+[ext_resource path="res://LoopingLabel.gd" type="Script" id=9]
 [ext_resource path="res://animations/LoopingLabel.tres" type="Animation" id=10]
 
 [node name="GameUI" type="Control"]
@@ -218,12 +219,12 @@ anchor_bottom = 0.6
 [node name="LoopingLabel" type="Control" parent="OpportunityBar"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 9 )
 
 [node name="OpportunityLabel" type="RichTextLabel" parent="OpportunityBar/LoopingLabel"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 266.855
-margin_right = 300.056
+margin_right = 33.1882
 custom_fonts/normal_font = ExtResource( 7 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 text = " PERFECT OPPORTUNITY | PERFECT OPPORTUNITY | PERFECT OPPORTUNITY |
@@ -233,15 +234,16 @@ scroll_active = false
 [node name="OpportunityLabel2" type="RichTextLabel" parent="OpportunityBar/LoopingLabel"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -790.145
-margin_right = -757.145
+margin_left = -1057.0
+margin_right = -1024.0
 custom_fonts/normal_font = ExtResource( 7 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 text = " PERFECT OPPORTUNITY | PERFECT OPPORTUNITY | PERFECT OPPORTUNITY |
 "
 scroll_active = false
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="OpportunityBar/LoopingLabel"]
+[node name="LoopAnim" type="AnimationPlayer" parent="OpportunityBar/LoopingLabel"]
+autoplay = "LoopingLabel"
 anims/LoopingLabel = ExtResource( 10 )
 
 
