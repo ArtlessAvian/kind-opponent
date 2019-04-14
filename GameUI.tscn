@@ -248,5 +248,3 @@ anims/LoopingLabel = ExtResource( 11 )
 
 
 [editable path="UICanvas/EnemyUI/EnemyBars/EnemyAdvRegion/EnemyAdvBar"]
-
-[editable path="UICanvas/PlayerUI/PlayerBars/PlayerHPRegion/PlayerHealthBar"]
