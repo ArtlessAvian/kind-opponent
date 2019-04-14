@@ -2,6 +2,7 @@
 
 [resource]
 resource_name = "IdleBounce"
+loop = true
 step = 0.05
 tracks/0/type = "bezier"
 tracks/0/path = NodePath(".:rect_scale:x")
