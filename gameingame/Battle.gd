@@ -89,7 +89,7 @@ func _game_logic(player_action):
 	self._text_box(str("Turn ", turn, ":"))
 	yield()
 
-	self._text_box("Player " + ["attacks", "attacks (but differently)", "heals", "charges"][player_action] + "!")
+	self._text_box("Player " + ["zaps the opponent with concentrated magic", "calls down a series of lightning bolts", "reinforces its shields", "gathers energy from the earth"][player_action] + "!")
 	self.emit_signal("player_action",player_action)
 	$Player.do_move(player_action, opportunity_attack == player_action)
 	yield()
@@ -103,7 +103,7 @@ func _game_logic(player_action):
 	
 	else:
 		var opponent_move = _get_opponent_move()
-		self._text_box("The opponent " + ["attacks", "attacks (but differently)", "heals", "charges"][opponent_move] + "!")
+		self._text_box("The opponent " + ["bashes you with its staff", "calls down a meteor", "reinforces its shields", "raises its staff and focuses"][opponent_move] + "!")
 		yield()
 		$Opponent.do_move(opponent_move, false)
 		self.emit_signal("enemy_action",opponent_move)
@@ -120,3 +120,9 @@ func _game_logic(player_action):
 func _text_box(text):
 	print(text)
 	self.emit_signal("user_feedback", text, true)
+
+func threshold_passed(thingy):
+	_text_box(str("A layer of ", thingy.name, "'s shield shatters, and it gathers the residual energy."))
+#	self.emit_signal("update_bars")
+	thingy.advantage += 60
+	thingy.max_health -= 100

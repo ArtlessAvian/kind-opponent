@@ -9,6 +9,7 @@ var character
 var bar
 var label
 var counter
+var true_max
 
 func _ready():
 	
@@ -18,6 +19,7 @@ func _ready():
 	label = $UIBarLabel
 	if not character == null:
 		counter = character.max_health if copy_health else character.advantage
+		true_max = character.max_health if copy_health else character.max_adv
 		bar.set_value(float(counter) / self._get_target_max())
 		label.update_value(str(ceil(counter), "/", self._get_target_max()))
 	
@@ -65,10 +67,11 @@ func _get_target():
 		return character.advantage
 		
 func _get_target_max():
-	if copy_health:
-		return character.max_health
-	else:
-		return character.max_adv
+#	if copy_health:
+#		return character.max_health
+#	else:
+#		return character.max_adv
+	return true_max
 
 # grrr
 func _on_Battle_update_bars():

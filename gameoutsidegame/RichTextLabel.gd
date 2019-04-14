@@ -19,10 +19,8 @@ His mother followed. \"It\'s not nice, treating your little brother like that. C
 \"Because he sucks!\"
 His father sighed. \"Remember our Advant matches when you were six?\"
 \"Yeah. You told me already. Occasionally lost to me on purpose so I can feel good about myself. So you can go do that to Ryan; I\'ll have no part.\"
-\"Well, how would you feel if I just outmaneuvered you at every turn, even if your mother is playing on your level?\"
-\"I...\"
 \"Let me tell you how Ryan is feeling. He\'s devastated. He thinks he will never be good enough.\"
-His mother cut in. \"Later today, Ryan will issue another challenge. You will give him a good fight, and you will let him win.\"
+His mother cut in. \"In a few minutes, Ryan will issue another challenge. You will give him a good fight, and you will let him win.\"
 \"Or what?\"
 \"We will be watching.\" His father said.
 His mother continued. \"Bottom line, if he didn\'t enjoy the game, we\'re taking away your gaming time for a month.\"
