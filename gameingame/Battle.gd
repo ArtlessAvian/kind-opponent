@@ -5,8 +5,8 @@ signal user_feedback
 signal update_bars
 signal opportunity_turn
 signal update_text
-signal attack_anim
-signal enemy_attack
+signal player_action
+signal enemy_action
 
 var yielding_for_queue = []
 var turn = 0 # why not its free
@@ -90,8 +90,7 @@ func _game_logic(player_action):
 	yield()
 
 	self._text_box("Player " + ["attacks", "attacks (but differently)", "heals", "charges"][player_action] + "!")
-	if player_action == 0 or player_action == 1:
-		self.emit_signal("attack_anim")
+	self.emit_signal("player_action",player_action)
 	$Player.do_move(player_action, opportunity_attack == player_action)
 	yield()
 
@@ -107,15 +106,14 @@ func _game_logic(player_action):
 		self._text_box("The opponent " + ["attacks", "attacks (but differently)", "heals", "charges"][opponent_move] + "!")
 		yield()
 		$Opponent.do_move(opponent_move, false)
-		if opponent_move == 0 or opponent_move == 1:
-			self.emit_signal("enemy_attack")
+		self.emit_signal("enemy_action",opponent_move)
 
 		yield()
 		self.emit_signal("update_bars")
 		if ($Player.is_dead()):
 			self._text_box("You are ded (jk you win)")
 			self._text_box(str("Believability: ", 120/$Opponent._health, "%"))
-	if true:
+	if randi()%3 == 0:
 		self.emit_signal("update_text")
 	self._get_opportunity_attack()
 
