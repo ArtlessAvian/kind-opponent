@@ -36,7 +36,7 @@ func _get_opponent_move():
 		1000 if $Player._health < 20 else 10, \
 		10000 if $Player._health < $Opponent.advantage * $Opponent.get_child(0).get_child(1).efficiency \
 			else 20 * exp(- 0.5 * pow($Opponent.advantage - 100, 2) / 1600), \
-		$Opponent.last_damage / 4, \
+		pow($Opponent.last_damage / 40, 1.2) * 10, \
 		200 / max($Opponent.advantage, 0.1) \
 	]
 
