@@ -14,11 +14,15 @@ func _ready():
 	player = self.get_node(player_path)
 	battle = player.get_node("..")
 	move = player.get_node("Moves").get_child(move_id)
-	self.text = move.name
 	default_color = get("custom_colors/font_color")
 
 func _process(delta):
+	var opportunity = battle.opportunity_attack == move_id
+
 	self.disabled = (not move.available(player)) or player.is_dead() or player.get_parent().turn_state != null
-	set("custom_colors/font_color",opportunity_color if battle.opportunity_attack == move_id else default_color)
+	self.text = move.summary(player, opportunity)
+	self.hint_tooltip = move.describe(player, opportunity)
+
+	set("custom_colors/font_color",opportunity_color if opportunity else default_color)
 	# ----------------------------------------------------------------- the battle. ^^^^^^^^^^^^ nice
 	
