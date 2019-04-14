@@ -31,9 +31,9 @@ func describe(user, opportunity):
 	return """
 		Fire a bolt of fluctuating mana.
 		Uses a moderate amount of mana to deal a moderate amount of damage.
-		Small amount of health regeneration.
+		Small amount of shield recharge.
 		%s
 		Damage: %d
 		Mana Cost: %d
-		Health Regen: %d
+		Shield Recharge: %d
 	""" % ['\nPERFECT OPPORTUNITY: Double damage output\n' if opportunity else '', _get_damage_value(user, opportunity), _get_advantage_cost(user, opportunity), _get_regen_value(user)]

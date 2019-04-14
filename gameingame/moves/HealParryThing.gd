@@ -18,8 +18,9 @@ func summary(user, opportunity):
 
 func describe(user, opportunity):
 	return """
-		Heal for 60%% of the damage taken last time you were attacked.
+		Use concentrated mana to reinforce your shields.
+		Repairs 60%% of the damage taken last time you were attacked.
 		%s
 		Mana Cost: %d
-		Health Regen: %d
-	""" % ['\nPERFECT OPPORTUNITY: Double health regeneration\n' if opportunity else '', advantage_cost, _get_heal_value(user, opportunity)]
+		Shield Recharge: %d
+	""" % ['\nPERFECT OPPORTUNITY: Double shield recharge\n' if opportunity else '', advantage_cost, _get_heal_value(user, opportunity)]
