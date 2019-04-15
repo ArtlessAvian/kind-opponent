@@ -131,6 +131,7 @@ bbcode_text = "[center] Do Hold Back"
 text = " Do Hold Back"
 
 [node name="Credits" type="ColorRect" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -1.22766
