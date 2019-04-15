@@ -8,6 +8,8 @@ signal update_text
 signal player_action
 signal enemy_action
 
+export(NodePath) var end_game_screen_path
+var end_game_screen
 var yielding_for_queue = []
 var turn = 0 # why not its free
 var turn_state = null
@@ -16,9 +18,11 @@ var bonus_believability = 0
 
 func _ready():
 	randomize()
+	end_game_screen = get_node(end_game_screen_path)
 	$Player.opponent = $Opponent
 	$Opponent.opponent = $Player
 	self._get_opportunity_attack()
+	
 
 # Abuses yield to hand off stuff to the view
 func _on_button_down(player_action):
@@ -115,7 +119,15 @@ func _game_logic(player_action):
 		self.emit_signal("update_bars")
 		if ($Player.is_dead()):
 			self._text_box("You are ded (jk you win)")
+			var score = 120/$Opponent._health
 			self._text_box(str("Believability: ", 120/$Opponent._health, "%"))
+			if score <80:
+				end_game_screen.make_visible(1,score)
+			else:
+				end_game_screen.make_visible(2,score)
+		if $Opponent.is_dead():
+			end_game_screen.make_visible(0,0)
+			
 	if randi()%3 == 0:
 		self.emit_signal("update_text")
 	self._get_opportunity_attack()
