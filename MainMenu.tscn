@@ -131,7 +131,6 @@ bbcode_text = "[center] Do Hold Back"
 text = " Do Hold Back"
 
 [node name="Credits" type="ColorRect" parent="."]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -1.22766
@@ -215,15 +214,14 @@ custom_fonts/font = ExtResource( 5 )
 text = "Back!"
 
 [node name="AssetCredits" type="Control" parent="Credits"]
-editor/display_folded = true
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -435.43
-margin_top = 131.18
-margin_right = 186.56
-margin_bottom = 316.95
+margin_left = -435.0
+margin_top = 111.0
+margin_right = 187.0
+margin_bottom = 292.0
 
 [node name="GameMusic" type="Label" parent="Credits/AssetCredits"]
 anchor_right = 1.0
@@ -275,6 +273,16 @@ custom_fonts/font = ExtResource( 7 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Credit to bevouliin.com for background art   -- https://opengameart.org/content/bevouliin-free-game
                                                                  -background-for-game-developers"
+
+[node name="font" type="Label" parent="Credits/AssetCredits"]
+anchor_top = 0.6
+anchor_bottom = 0.7
+margin_top = 42.4
+margin_right = 821.0
+margin_bottom = 59.3
+custom_fonts/font = ExtResource( 7 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Credit to Zacchary Dempsey-Plante for font. -- https://www.dafont.com/pixellari.font"
 
 [node name="TransitionToGame" type="ColorRect" parent="."]
 visible = false
