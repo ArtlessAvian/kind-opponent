@@ -44,7 +44,7 @@ func _get_opponent_move():
 	var weights = [
 		10, \
 		16 * exp(- pow($Opponent.advantage - 100, 2) / 2450), \
-		10 / (0.0035 * $Opponent._health + 0.2) * (1 + 0.4 * atan(0.075 * ($Opponent.max_health - $Opponent._health - 100))), \
+		10 / (0.0035 * $Opponent._health + 0.2) * (1 + 0.4 * atan(0.075 * ($Opponent.last_damage - 100))), \
 		10 - 5 * atan(0.03 * ($Opponent.advantage - 80)) \
 	]
 
@@ -54,14 +54,15 @@ func _get_opponent_move():
 	if $Player._health < $Opponent.advantage * $Opponent.get_child(0).get_child(1).efficiency:
 		weights[1] += 1000
 	
-	if $Opponent.max_health - $Opponent._health < 1:
-		weights[2] = 0
+	var expected_heal = $Opponent.get_child(0).get_child(2)._get_heal_value($Opponent, false)
+	if expected_heal / 2 > $Opponent.max_health - $Opponent._health:
+		weights[2] *= ($Opponent.max_health - $Opponent._health) * 2 / expected_heal
 
 	var allowed = [
-		$Opponent.advantage >= $Opponent.get_child(0).get_child(0).advantage_cost,
-		$Opponent.advantage > 1,
-		$Opponent.advantage >= $Opponent.get_child(0).get_child(2).advantage_cost,
-		true
+		$Opponent.get_child(0).get_child(0).available($Opponent),
+		$Opponent.get_child(0).get_child(1).available($Opponent),
+		$Opponent.get_child(0).get_child(2).available($Opponent),
+		$Opponent.get_child(0).get_child(3).available($Opponent)
 	]
 	
 	print(str("weight array ", weights, " allowed ", allowed))
