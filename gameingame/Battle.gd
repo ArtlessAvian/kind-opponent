@@ -54,8 +54,9 @@ func _get_opponent_move():
 	if $Player._health < $Opponent.advantage * $Opponent.get_child(0).get_child(1).efficiency:
 		weights[1] += 1000
 	
-	if $Opponent.max_health - $Opponent._health < 1:
-		weights[2] = 0
+	var expected_heal = $Opponent.get_child(0).get_child(2)._get_heal_value($Opponent, false)
+	if expected_heal / 2 > $Opponent.max_health - $Opponent._health:
+		weights[2] *= ($Opponent.max_health - $Opponent._health) * 2 / expected_heal
 
 	var allowed = [
 		$Opponent.get_child(0).get_child(0).available($Opponent),
