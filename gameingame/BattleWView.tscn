@@ -9,13 +9,6 @@
 [node name="Battle" parent="." index="3" instance=ExtResource( 2 )]
 end_game_screen_path = NodePath("../GameEndScreen")
 
-[node name="PlayerSprite" parent="BattleCanvas/PlayerRegion" index="0"]
-margin_left = -7.62939e-006
-margin_right = -7.62939e-005
-
-[node name="EnemySprite" parent="BattleCanvas/EnemyRegion" index="0"]
-color = Color( 1, 1, 1, 1 )
-
 [node name="EnemyHPBar" parent="UICanvas/EnemyUI/EnemyBars/EnemyHPregion" index="0"]
 target_path = NodePath("../../../../../Battle")
 
@@ -63,14 +56,9 @@ move_id = 3
 [connection signal="enemy_action" from="Battle" to="BattleCanvas/EnemyRegion/EnemySprite" method="do_action"]
 [connection signal="player_action" from="Battle" to="BattleCanvas/PlayerRegion/PlayerSprite" method="do_action"]
 [connection signal="update_bars" from="Battle" to="UICanvas/EnemyUI/EnemyBars/EnemyAdvRegion/EnemyAdvBar" method="update_children"]
-[connection signal="update_bars" from="Battle" to="UICanvas/PlayerUI/PlayerBars/PlayerAdvRegion/EnemyAdvBar" method="_on_Battle_update_bars"]
 [connection signal="update_bars" from="Battle" to="UICanvas/EnemyUI/EnemyBars/EnemyHPregion/EnemyHPBar" method="_on_Battle_update_bars"]
-<<<<<<< Updated upstream
-[connection signal="update_bars" from="Battle" to="UICanvas/EnemyUI/EnemyBars/EnemyAdvRegion/EnemyAdvBar" method="update_children"]
-[connection signal="update_bars" from="Battle" to="UICanvas/PlayerUI/PlayerBars/PlayerAdvRegion/EnemyAdvBar" method="_on_Battle_update_bars"]
-=======
->>>>>>> Stashed changes
 [connection signal="update_bars" from="Battle" to="UICanvas/PlayerUI/PlayerBars/PlayerHPRegion/PlayerHealthBar" method="update_children"]
+[connection signal="update_bars" from="Battle" to="UICanvas/PlayerUI/PlayerBars/PlayerAdvRegion/EnemyAdvBar" method="_on_Battle_update_bars"]
 [connection signal="update_text" from="Battle" to="BattleCanvas/EnemyRegion/SpeechBubble/EnemyText" method="set_rand_line"]
 [connection signal="user_feedback" from="Battle" to="Panel/Control/RichTextLabel" method="_on_Battle_user_feedback"]
 [connection signal="button_down" from="UICanvas/PlayerUI/PlayerActions/Action1Region/Attack1Button" to="Battle" method="_on_button_down" binds= [ 0 ]]
@@ -85,5 +73,3 @@ move_id = 3
 [editable path="UICanvas/EnemyUI/EnemyBars/EnemyAdvRegion/EnemyAdvBar"]
 
 [editable path="UICanvas/PlayerUI/PlayerBars/PlayerHPRegion/PlayerHealthBar"]
-
-[editable path="GameEndScreen"]

@@ -107,6 +107,7 @@ func _game_logic(player_action):
 
 	if ($Opponent.is_dead()):
 		self._text_box("You are winnr (jk you lose)")
+		end_game_screen.make_visible(0,0)
 	
 	else:
 		var opponent_move = _get_opponent_move()
@@ -119,15 +120,13 @@ func _game_logic(player_action):
 		self.emit_signal("update_bars")
 		if ($Player.is_dead()):
 			self._text_box("You are ded (jk you win)")
-			var score = 120/$Opponent._health
-			self._text_box(str("Believability: ", 120/$Opponent._health, "%"))
+			var score = floor(min(100, pow($Opponent._health - 400, 2)/1300 + 5 * bonus_believability))
+#			self._text_box(str("Believability: ", 120/$Opponent._health, "%"))
 			if score <80:
 				end_game_screen.make_visible(1,score)
 			else:
 				end_game_screen.make_visible(2,score)
-		if $Opponent.is_dead():
-			end_game_screen.make_visible(0,0)
-			
+				
 	if randi()%3 == 0:
 		self.emit_signal("update_text")
 	self._get_opportunity_attack()
