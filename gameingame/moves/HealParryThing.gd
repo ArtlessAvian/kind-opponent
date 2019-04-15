@@ -11,7 +11,7 @@ func run(user, opponent, opportunity):
 	user.get_healed(_get_heal_value(user, opportunity))
 
 func available(user):
-	return user.advantage >= advantage_cost
+	return user.advantage >= advantage_cost and user._health < user.max_health
 
 func summary(user, opportunity):
 	return 'Regenerate [0/-%d/+%d]' % [advantage_cost, _get_heal_value(user, opportunity)]
