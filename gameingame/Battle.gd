@@ -58,10 +58,10 @@ func _get_opponent_move():
 		weights[2] = 0
 
 	var allowed = [
-		$Opponent.advantage >= $Opponent.get_child(0).get_child(0).advantage_cost,
-		$Opponent.advantage > 1,
-		$Opponent.advantage >= $Opponent.get_child(0).get_child(2).advantage_cost,
-		true
+		$Opponent.get_child(0).get_child(0).available($Opponent),
+		$Opponent.get_child(0).get_child(1).available($Opponent),
+		$Opponent.get_child(0).get_child(2).available($Opponent),
+		$Opponent.get_child(0).get_child(3).available($Opponent)
 	]
 	
 	print(str("weight array ", weights, " allowed ", allowed))
