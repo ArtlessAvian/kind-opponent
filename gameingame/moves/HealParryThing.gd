@@ -4,7 +4,7 @@ export (int) var advantage_cost = 10
 export (float, 0, 2) var regen = 0.6
 
 func _get_heal_value(user, opportunity):
-	return user.last_damage * regen * (2 if opportunity else 1)
+	return min(user.last_damage * regen * (2 if opportunity else 1), user.max_health - user._health)
 
 func run(user, opponent, opportunity):
 	user.advantage -= advantage_cost
