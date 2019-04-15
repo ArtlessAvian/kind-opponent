@@ -17,9 +17,9 @@ func _get_regen_value(user):
 	return regen * (user.max_health - user._health)
 
 func run(user, opponent, opportunity):
-	user.advantage -= _get_advantage_cost(user, opportunity)# advantage_cost
 	opponent.take_damage(_get_damage_value(user, opportunity))
 	user.get_healed(_get_regen_value(user))
+	user.advantage -= _get_advantage_cost(user, opportunity)# advantage_cost
 
 func available(user):
 	return user.advantage > 0
