@@ -23,7 +23,7 @@ func run(user, opponent, opportunity):
 	#user.get_healed(_get_regen_value(user))
 
 func available(user):
-	return user.advantage > 0
+	return user.advantage > 0 and user._health > knockback
 
 func summary(user, opportunity):
 	return 'Lightning Barrage [%d/-%d/-%d]' % [_get_damage_value(user), _get_advantage_cost(user, opportunity), _get_knockback_value(user)]
